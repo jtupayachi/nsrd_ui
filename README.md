@@ -10,8 +10,22 @@
 [![React](https://img.shields.io/badge/React-18-61dafb?logo=react)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9-3178c6?logo=typescript)](https://typescriptlang.org)
 [![Ollama](https://img.shields.io/badge/Ollama-LLM-ff6b35)](https://ollama.ai)
-[![Docker](https://img.shields.io/badge/Docker-ready-2496ed?logo=docker)](https://docker.com)
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-jtupayac%2Fnsrd--ui-2496ed?logo=docker)](https://hub.docker.com/r/jtupayac/nsrd-ui)
 [![ORNL](https://img.shields.io/badge/Oak%20Ridge-National%20Laboratory-00629b)](https://ornl.gov)
+
+<br/>
+
+| | |
+|:---:|:---:|
+| **PI** | [Xiao-Ying Yu, Ph.D.](https://www.ornl.gov/staff-profile/xiao-ying-yu) · Oak Ridge National Laboratory |
+| **Dev** | [Jose Tupayachi](https://jtupayachi.github.io/) · UTK / ORNL |
+| **Container** | [`docker pull jtupayac/nsrd-ui`](https://hub.docker.com/r/jtupayac/nsrd-ui) |
+
+<br/>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/jtupayachi/nsrd_ui" alt="QR — github.com/jtupayachi/nsrd_ui" />
+
+<sub>Scan to open the repo</sub>
 
 </div>
 
@@ -80,66 +94,24 @@ Backend  → http://localhost:80 (or `PORT` env var)
 
 ## Connecting Your Ollama Server
 
-SmartGIScavp works with any Ollama instance — local, remote, or behind auth.
-
-### 1. Local Ollama (default port)
-
-Edit **`nsrd_ui/server.js`** and **`nsrd_ui/pipeline.js`**:
-
-```js
-// Before (Viridian cluster):
-const OLLAMA_HOST = 'https://ollama.viridian.ise.utk.edu';
-const USERNAME    = 'ollama_user';
-const PASSWORD    = 'ollama4Viridian';
-
-// After (local):
-const OLLAMA_HOST = 'http://localhost:11434';
-const USERNAME    = '';   // no auth for local
-const PASSWORD    = '';
-```
-
-Remove the auth header lines if your Ollama has no password:
-
-```js
-// Remove or comment out:
-const authHeader = 'Basic ' + Buffer.from(`${USERNAME}:${PASSWORD}`).toString('base64');
-```
-
-Also remove `Authorization` from any `axios` call headers in those files.
-
-### 2. Remote Ollama with Basic Auth
-
-```js
-const OLLAMA_HOST = 'https://your-ollama-server.example.com';
-const USERNAME    = 'your_username';
-const PASSWORD    = 'your_password';
-const authHeader  = 'Basic ' + Buffer.from(`${USERNAME}:${PASSWORD}`).toString('base64');
-```
-
-### 3. Remote Ollama with API Key (Bearer token)
-
-```js
-const OLLAMA_HOST = 'https://your-ollama-server.example.com';
-const authHeader  = 'Bearer YOUR_API_KEY_HERE';
-```
-
-Then in `axios` calls, set:
-
-```js
-headers: { Authorization: authHeader }
-```
-
-### 4. Verify the connection
+All credentials live in **`.env`** — never hardcoded. Copy the template and fill in your values:
 
 ```bash
-curl http://localhost:11434/api/tags
-# Should return JSON with your available models
+cp nsrd_ui/.env.example nsrd_ui/.env
 ```
 
-> Ollama must be running with the models you want. Download models with:
+```ini
+# .env
+OLLAMA_HOST=http://localhost:11434   # or https://your-remote-ollama.example.com
+OLLAMA_USER=                         # leave blank for no-auth local installs
+OLLAMA_PASSWORD=                     # or set OLLAMA_API_KEY for Bearer token auth
+ANTHROPIC_API_KEY=                   # optional — enables Claude models
+```
+
+> **Verify your Ollama connection:**
 > ```bash
-> ollama pull qwen3-coder:30b
-> ollama pull llama3.2
+> curl $OLLAMA_HOST/api/tags   # should return JSON with your models
+> ollama pull qwen3-coder:30b  # download a model if needed
 > ```
 
 ---
@@ -233,12 +205,15 @@ Golden examples live in `reference-codebases/golden-examples/src/` — add your 
 
 | Variable | Default | Description |
 |---|---|---|
+| `OLLAMA_HOST` | `http://localhost:11434` | Ollama server URL |
+| `OLLAMA_USER` | *(blank)* | Basic auth username |
+| `OLLAMA_PASSWORD` | *(blank)* | Basic auth password |
+| `OLLAMA_API_KEY` | *(blank)* | Bearer token (alternative to basic auth) |
+| `ANTHROPIC_API_KEY` | *(blank)* | Enable Anthropic Claude |
 | `PORT` | `80` | Express backend port |
-| `NODE_ENV` | `production` | Node environment |
-| `ANTHROPIC_API_KEY` | *(none)* | Enable Anthropic Claude backend |
-| `VIRTUAL_HOST` | *(none)* | nginx-proxy hostname for reverse proxy |
+| `VIRTUAL_HOST` | *(blank)* | nginx-proxy reverse-proxy hostname |
 
-Edit `docker-compose.yml` → `environment:` section to set them.
+See `nsrd_ui/.env.example` for a full annotated template.
 
 ---
 
@@ -311,11 +286,27 @@ Browser
 
 ---
 
-## Contributing
+## Sponsorship & Collaboration
 
-Pull requests welcome. For major changes, open an issue first.
+SmartGIScavp is an active R&D project at **Oak Ridge National Laboratory** exploring the intersection of large language models, geospatial computing, and scientific app generation.
 
-Golden example components in `reference-codebases/golden-examples/src/` are especially valuable — high-quality React components improve LLM output for everyone.
+We are seeking **DOE program sponsors and research partners** to scale this work. Potential collaboration areas include:
+
+- 🏛️ **DOE Office of Science** — integrating SmartGIScavp into scientific data workflows and user facilities
+- 🗺️ **Geospatial intelligence** — extending multi-page app generation to real-time sensor and satellite data
+- 🤖 **LLM infrastructure** — co-developing domain-specific fine-tuned models for scientific code generation
+- 🔒 **Secure deployments** — air-gapped, on-premise builds for classified or sensitive environments
+
+If your program could benefit from AI-assisted rapid application development for scientific data, we would love to connect.
+
+| Contact | Link |
+|---|---|
+| **Xiao-Ying Yu, Ph.D.** — PI, ORNL | [Staff Profile](https://www.ornl.gov/staff-profile/xiao-ying-yu) |
+| **Jose Tupayachi** — Developer | [jtupayachi.github.io](https://jtupayachi.github.io/) |
+| **Repository** | [github.com/jtupayachi/nsrd_ui](https://github.com/jtupayachi/nsrd_ui) |
+| **Container** | [hub.docker.com/r/jtupayac/nsrd-ui](https://hub.docker.com/r/jtupayac/nsrd-ui) |
+
+> Pull requests and golden example components (`reference-codebases/golden-examples/src/`) are always welcome — high-quality React components directly improve LLM output quality for all users.
 
 ---
 
@@ -326,5 +317,13 @@ MIT © Oak Ridge National Laboratory
 ---
 
 <div align="center">
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://github.com/jtupayachi/nsrd_ui" alt="QR Code" />
+
+<br/>
+
+[jtupayachi.github.io](https://jtupayachi.github.io/) &nbsp;·&nbsp; [ORNL Profile](https://www.ornl.gov/staff-profile/xiao-ying-yu) &nbsp;·&nbsp; [Docker Hub](https://hub.docker.com/r/jtupayac/nsrd-ui)
+
 <sub>SmartGIScavp · Oak Ridge National Laboratory · Built with Ollama + React</sub>
+
 </div>
