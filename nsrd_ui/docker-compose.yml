@@ -51,6 +51,13 @@ services:
       - VIRTUAL_PORT=80
       - LETSENCRYPT_HOST=demo2.recoil.ise.utk.edu
       - LETSENCRYPT_EMAIL=jtupayac@vols.utk.edu
+      # Ollama — override via .env or docker compose --env-file
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://localhost:11434}
+      - OLLAMA_USER=${OLLAMA_USER:-}
+      - OLLAMA_PASSWORD=${OLLAMA_PASSWORD:-}
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY:-}
+      # Anthropic (optional)
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
     networks:
       - default
       - nsrd-network

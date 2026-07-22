@@ -7,7 +7,7 @@
 
 ### AI-Powered Multi-Page React Application Generator
 
-**Describe pages in plain English → Get a deployed, production-quality React app in minutes.**
+**Write your requirements → Get a deployed, production-quality React app in minutes.**
 
 Built at [Oak Ridge National Laboratory](https://www.ornl.gov/) · Powered by LLMs · Fully Self-Hosted
 

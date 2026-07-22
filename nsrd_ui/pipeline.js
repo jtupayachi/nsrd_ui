@@ -33,11 +33,13 @@ const { sanitizeFiles, validateFiles } = require('./sanitizer');
 const { getRelevantExamples } = require('./referenceAnalyzer_rag');
 
 /* ── Config ────────────────────────────────────────── */
-const OLLAMA_HOST = 'https://ollama.viridian.ise.utk.edu';
-const USERNAME = 'ollama_user';
-const PASSWORD = 'ollama4Viridian';
-const authHeader =
-  'Basic ' + Buffer.from(`${USERNAME}:${PASSWORD}`).toString('base64');
+// Ollama configuration — set these in .env (never hardcode credentials)
+const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
+const USERNAME    = process.env.OLLAMA_USER || '';
+const PASSWORD    = process.env.OLLAMA_PASSWORD || '';
+const authHeader  = (USERNAME && PASSWORD)
+  ? 'Basic ' + Buffer.from(`${USERNAME}:${PASSWORD}`).toString('base64')
+  : (process.env.OLLAMA_API_KEY ? `Bearer ${process.env.OLLAMA_API_KEY}` : '');
 
 const PROJECTS_DIR = path.join(__dirname, 'projects');
 const TEMPLATE_DIR = path.join(__dirname, 'templates', 'react-app');

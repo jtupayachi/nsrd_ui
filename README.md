@@ -4,7 +4,7 @@
 
 ### AI-Powered Multi-Page React App Generator
 
-**Describe your app in plain English → LLM thinks + codes → Live React app deployed in seconds**
+**Write your requirements → LLM thinks + codes → Live React app deployed in seconds**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![React](https://img.shields.io/badge/React-18-61dafb?logo=react)](https://reactjs.org)

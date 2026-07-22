@@ -74,13 +74,15 @@ function detectDataMismatchQuestion(pageCtx) {
   return null;
 }
 
-// Viridian Ollama configuration
-const OLLAMA_HOST = "https://ollama.viridian.ise.utk.edu";
-const USERNAME = "ollama_user";
-const PASSWORD = "ollama4Viridian";
+// Ollama configuration — set these in .env (never hardcode credentials)
+const OLLAMA_HOST = process.env.OLLAMA_HOST || 'http://localhost:11434';
+const USERNAME    = process.env.OLLAMA_USER || '';
+const PASSWORD    = process.env.OLLAMA_PASSWORD || '';
 
-// Create auth header
-const authHeader = 'Basic ' + Buffer.from(`${USERNAME}:${PASSWORD}`).toString('base64');
+// Create auth header — empty string when no credentials are configured
+const authHeader = (USERNAME && PASSWORD)
+  ? 'Basic ' + Buffer.from(`${USERNAME}:${PASSWORD}`).toString('base64')
+  : (process.env.OLLAMA_API_KEY ? `Bearer ${process.env.OLLAMA_API_KEY}` : '');
 
 // Middleware
 app.use(cors());
