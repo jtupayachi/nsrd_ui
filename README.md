@@ -13,20 +13,6 @@
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-jtupayac%2Fnsrd--ui-2496ed?logo=docker)](https://hub.docker.com/r/jtupayac/nsrd-ui)
 [![ORNL](https://img.shields.io/badge/Oak%20Ridge-National%20Laboratory-00629b)](https://ornl.gov)
 
-<br/>
-
-| | |
-|:---:|:---:|
-| **PI** | [Xiao-Ying Yu, Ph.D.](https://www.ornl.gov/staff-profile/xiao-ying-yu) · Oak Ridge National Laboratory |
-| **Dev** | [Jose Tupayachi](https://jtupayachi.github.io/) · UTK / ORNL |
-| **Container** | [`docker pull jtupayac/nsrd-ui`](https://hub.docker.com/r/jtupayac/nsrd-ui) |
-
-<br/>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/jtupayachi/nsrd_ui" alt="QR — github.com/jtupayachi/nsrd_ui" />
-
-<sub>Scan to open the repo</sub>
-
 </div>
 
 ---
@@ -318,12 +304,16 @@ MIT © Oak Ridge National Laboratory
 
 <div align="center">
 
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://github.com/jtupayachi/nsrd_ui" alt="QR Code" />
+| | |
+|:---:|:---:|
+| **PI** | [Xiao-Ying Yu, Ph.D.](https://www.ornl.gov/staff-profile/xiao-ying-yu) · Oak Ridge National Laboratory |
+| **Dev** | [Jose Tupayachi](https://jtupayachi.github.io/) · UTK / ORNL |
+| **Container** | [`docker pull jtupayac/nsrd-ui`](https://hub.docker.com/r/jtupayac/nsrd-ui) |
 
 <br/>
 
-[jtupayachi.github.io](https://jtupayachi.github.io/) &nbsp;·&nbsp; [ORNL Profile](https://www.ornl.gov/staff-profile/xiao-ying-yu) &nbsp;·&nbsp; [Docker Hub](https://hub.docker.com/r/jtupayac/nsrd-ui)
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/jtupayachi/nsrd_ui" alt="QR — github.com/jtupayachi/nsrd_ui" />
 
-<sub>SmartGIScavp · Oak Ridge National Laboratory · Built with Ollama + React</sub>
+<sub>Scan to open the repo · SmartGIScavp · Oak Ridge National Laboratory</sub>
 
 </div>
