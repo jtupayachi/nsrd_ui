@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Proposal Keyword Alignment Review</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Proposal Keyword Alignment Review</h1>
+</header>
+<h1 id="proposal-keyword-alignment-review">Proposal Keyword Alignment
+Review</h1>
+<p><strong>Legend:</strong> - <span
+style="color:red; font-weight:bold;">[ADD: text]</span> = Insert this
+keyword/phrase from the RFA (shown in red) - <span
+style="color:red; font-weight:bold;">[REPLACE: old text → new
+text]</span> = Replace existing text with RFA-aligned language (shown in
+red) - <span style="color:blue; font-weight:bold;">Blue terms</span> =
+Glossary terms (see Glossary at end of document)</p>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p><span style="color:red; font-weight:bold;">[ADD before first
+sentence: “In direct response to RFA DE-FOA-0003612, Challenge #6:
+Transforming Nuclear Restoration &amp; Revitalization, this proposal
+addresses”]</span></p>
+<p>DOE <span style="color:blue; font-weight:bold;">Environmental
+Management (EM)</span> faces a persistent data-to-decision bottleneck.
+<span style="color:red; font-weight:bold;">[ADD after “bottleneck”:
+“DOE’s environmental cleanup mission faces an estimated $540 billion
+liability over eight decades, with ~90 million gallons of highly
+radioactive tank waste requiring treatment and numerous assets requiring
+disposition that impedes site remediation and restoration crucial for
+revitalization of American energy, security, and innovation.”]</span>
+Data acquired from <span
+style="color:blue; font-weight:bold;">environmental
+characterization</span>, monitoring, and site interpretation are often
+scattered among heterogeneous measurements, legacy reports, and
+site-specific documents, not ready for AI applications and informed
+decision-making. Consequently, high-value historical information, such
+as environmental characterization, detailed process sampling, <span
+style="color:blue; font-weight:bold;">remediation</span>, monitoring,
+and site/facility operations datasets, remains difficult to discover,
+connect, and reuse in a timely way. We aim to fill this gap by curating
+<span style="color:red; font-weight:bold;">[REPLACE: “data sets” →
+“AI-Ready Datasets”]</span>, harmonizing multimodal data preparation and
+creating intelligent data retrieval and analytics via an AI-driven
+human-in-the loop <span style="color:red; font-weight:bold;">[REPLACE:
+“knowledge system” → “integrated knowledge management system”]</span> to
+accelerate EM decision-making and co-design waste management for the DOE
+complex with novel geospatial analysis and visualization enabled by AI.
+<span style="color:red; font-weight:bold;">[ADD: “This work directly
+supports Energy Dominance objectives and aligns with EM’s 2040 vision
+for significant liability reduction.”]</span></p>
+<p>This project will create a transferable and transformative AI-guided
+data and knowledge workflow that converts fragmented environmental and
+operational records into harmonized, verifiable information layers to
+support sensible <span style="color:red; font-weight:bold;">[REPLACE:
+“sensible decision-making” → “risk-informed decision-making”]</span> for
+DOE EM sites. This AI framework enhances evidence retrieval performance,
+achieving higher Precision@k while remaining accountable cross-source
+data synthesis, and more effective <span
+style="color:blue; font-weight:bold;">AI-enhanced</span> decision
+support for characterization, monitoring, remediation, and waste
+management workflows. We will use the well-established site operation
+data at ORNL and Y-12 in addition to background environmental data to
+establish the framework.<sup>1,2</sup> <span
+style="color:red; font-weight:bold;">[ADD: “Drawing on DOE EM’s
+unparalleled 30+ years of operational data from unique nuclear
+processing facilities, the framework will also be designed for
+deployment at EM sites such as SRS and Hanford.”]</span> We will employ
+<span style="color:blue; font-weight:bold;">exploratory data analysis
+(EDA)</span> to discover data trends,<sup>3</sup> AI to predict
+potential anomalies,<sup>4</sup> and an AI-guided workflow<sup>5</sup>
+for multimodal data fusion, analysis, and scenario queries to support
+informed decision-making for DOE EM sites.</p>
+<hr />
+<h2 id="project-objectives">Project Objectives</h2>
+<p>The objective is to demonstrate that historical environmental
+measurements and legacy data and documents can be transformed into a
+harmonized and retrieval-ready information data structure that supports
+<span style="color:red; font-weight:bold;">[REPLACE: “informed decision
+workflows” → “risk-informed decision workflows and integrated
+performance and risk assessment”]</span> and provides a reliable
+foundation for broader cross-site and cross-media AI deployment. <span
+style="color:red; font-weight:bold;">[ADD: “This project is structured
+as a Seed Project under the Lighthouse Challenge framework,
+pressure-testing AI-driven workflows on well-characterized EM data
+before broader deployment.”]</span></p>
+<p>Phase I will: 1) establish a traceable, AI-guided workflow for
+pattern and anomaly discovery, organization, and harmonization of
+EM-relevant historical data and documents, 2) establish an integrated
+AI-assisted decision making framework that enables retrieval, synthesis,
+and use of these data assets to support waste management, storage, <span
+style="color:red; font-weight:bold;">[REPLACE: “and transport” →
+“transport, and waste disposition”]</span> and provide a foundation for
+broad deployment within DOE, and 3) create a bidirectional, <span
+style="color:blue; font-weight:bold;">human-in-the-loop</span> interface
+that supports expert knowledge capture, user feedback, and
+workforce-facing delivery of AI-synthesized insights.</p>
+<p>The Phase I project will validate the core workflow in a domain with
+a high technical readiness level (i.e., TRL&gt;5) using air data. Phase
+II will extend the capabilities to water- and soil-related datasets and
+synchronize with the <span
+style="color:red; font-weight:bold;">[REPLACE: “R&amp;D road map
+implementation” → “EM AI R&amp;D Roadmap Implementation (Focus Area
+A)”]</span> in the DOE complex. The innovative AI platform proposed
+herein, offering data fusion, analytics, geospatial visualization, and
+decision-making, will position ORNL for leadership in implementing the
+<span style="color:blue; font-weight:bold;">EM AI R&amp;D
+Roadmap</span>. Utilizing the rich QA/QCed data curated at ORNL and Y-12
+and the computational resources at ORNL (Frontier, <span
+style="color:red; font-weight:bold;">[ADD: “Genesis Mission
+supercomputing capabilities,”]</span> NERSC HPC) and UTK, we have a
+strong foundation to succeed in Phase I. <span
+style="color:red; font-weight:bold;">[ADD: “DOE/NNSA National laboratory
+experts will partner with industry experts for accelerated simulation
+architecture in development of the AI models.”]</span> Collaboration
+with UTK will provide training for the next-generation workforce in
+Tennessee’s booming nuclear industry, including fission and fusion,
+across TVA, Kairos, and Type One Energy.</p>
+<p><span style="color:red; font-weight:bold;">[ADD new paragraph: “This
+effort is sponsored by the participating offices: the Office of
+Environmental Management (EM), Office of Chief Technology Officer
+(EM-3.2), and the Office of Science (SC), Advanced Scientific Computing
+Research (ASCR). The proposed work aligns with all three RFA Focus
+Areas: (A) EM AI R&amp;D Roadmap Implementation, (B) Scale-Bridging AI
+Foundation Model development, and (C) Treatment Process Optimization at
+EM sites such as SRS and Hanford.”]</span></p>
+<hr />
+<h2 id="proposed-research-and-methods">Proposed Research and
+Methods</h2>
+<p>The 9-month (M) effort will establish a proof-of-concept AI-guided
+data and knowledge workflow for the EM environmental data use case. We
+will perform three tasks.</p>
+<h3 id="task-1.-ai-guided-data-curation-and-harmonization-m1-m4">Task 1.
+AI-Guided Data Curation and Harmonization (M1 – M4)</h3>
+<p>Task 1 directly supports the <span
+style="color:red; font-weight:bold;">[REPLACE: “Data Curation component
+of the AI R&amp;D Roadmap” → “Data Curation component of the EM AI
+R&amp;D Roadmap Implementation (Focus Area A)”]</span> and establishes
+the quality benchmarks and monitoring foundations needed for later
+deployment and improvement. <span
+style="color:red; font-weight:bold;">[ADD: “This task will enhance data
+accessibility across EM sites by converting historical data into
+standardized formats and evaluating multimodal data assets for AI
+applications, directly addressing the roadmap’s data-readiness
+goals.”]</span></p>
+<p><strong>Task 1.1. AI-guided data discovery and organization.</strong>
+We will identify and organize historical data assets across three source
+tiers: (1) expert-curated foundational datasets, including NEPA <span
+style="color:blue; font-weight:bold;">Environmental Impact Statements
+(EIS)</span> and associated EPA EIS database records, EM cleanup site
+operation data from ORCC, tabular environmental and operational
+datasets, and other authoritative historical records; (2)
+expert-selected literature and knowledge sources, including books,
+journal articles, and technical reports; and (3) MCP-enabled retrieval
+and crawl data used to supplement and update the knowledge base. For
+each source, AI agents will assist with query generation, document
+retrieval, source classification, duplicate detection, and relevance
+screening against predefined EM decision questions and priority
+variables. <span style="color:red; font-weight:bold;">[ADD: “Data assets
+will include operating &amp; administrative procedures, characterization
+records spanning fractured systems, subsurface contamination, and liquid
+waste, as well as environmental liability and financial
+forecasts.”]</span> Because crawl data may be less reliable than
+expert-curated and operational sources, it will be assigned lower
+source-confidence scores and routed through provenance review and expert
+validation before incorporation. An AI-guided workflow will be further
+developed to support source discovery, document screening, and initial
+relevance assessment based on our recent success in Automating
+Geospatial Web Dashboards Using Large Language Models and AI Agents for
+Decision Support.<sup>5</sup> The primary outcome will be a prioritized
+inventory of candidate data assets, including source type, relevance
+score, confidence level, key variables, spatial/temporal coverage,
+operational relevance, and downstream use cases.</p>
+<p><strong>Task 1.2. Multimodal data harmonization and repository
+development.</strong> Using the prioritized sources identified in Task
+1.1, we will construct a harmonized, traceable, and extensible
+multimodal repository that links structured environmental and
+operational datasets with unstructured historical and technical records.
+<span style="color:red; font-weight:bold;">[ADD: “This repository will
+serve as the data foundation for a Scale-Bridging AI Foundation Model
+(Focus Area B) that predicts scale-dependent behavior across lab, pilot,
+and full-scale systems.”]</span> The initial air-domain repository will
+build on an existing ORR meteorological dataset containing structured
+measurements of temperature, pressure, humidity, wind, precipitation,
+and solar radiation. We will extend this site-based air dataset into an
+<span style="color:red; font-weight:bold;">[REPLACE: “AI-ready
+multimodal repository” → “AI-Ready Dataset repository”]</span> by
+linking structured monitoring data with document-derived context from
+EIS reports, agency records, technical reports, literature, and
+MCP-retrieved updates. Structured datasets will be harmonized by
+variable, unit, location, timestamp, and reporting period, while
+unstructured documents will be parsed into retrieval-ready segments and
+annotated with metadata, including source, document type, site/location,
+date, environmental medium, key variables, and decision context. A
+common harmonization schema will align records across variables,
+locations, time windows, document types, and provenance fields. Shared
+identifiers will connect air-domain measurements with relevant document
+segments, regulatory records, and technical knowledge. After completing
+the air-domain repository, we will assess candidate soil and water
+datasets based on data quality, quantity, metadata completeness,
+spatial-temporal coverage, and relevance to EM decision questions.
+Selected soil or water datasets will then be incorporated into the same
+Task 1 harmonization workflow to support cross-domain validation in Task
+2.</p>
+<p><strong>Task 1.3. Data quality benchmarking, cataloging, and
+readiness assessment.</strong> To support <span
+style="color:red; font-weight:bold;">[REPLACE: “AI-ready data
+preparation” → “AI-Ready Dataset preparation”]</span>, we will implement
+a lightweight quality engine for data cleaning, validation,
+deduplication, source-confidence assessment, and schema conformance
+during ingestion. Quality checks will assess completeness, spatial
+consistency, temporal coherence, provenance confidence, unit
+consistency, duplication, and cross-source linkage quality.
+Machine-readable metadata and cataloging will support discoverability,
+lineage tracing, retrieval readiness, and future incorporation of
+additional data from users and partners through common metadata and
+schema standards. <span style="color:red; font-weight:bold;">[ADD: “The
+quality engine will also support CARS analyses and best contract
+mechanisms by providing verifiable data lineage and quality
+metrics.”]</span> For the air-domain foundation, the prior ORR
+meteorological dataset already provides a quality-controlled starting
+point. This project will build on those quality-control procedures and
+extend them into a broader AI-readiness framework that evaluates both
+structured datasets and document-derived knowledge sources. For soil and
+water datasets, readiness assessment will be used as a selection and
+screening step to determine whether the data are sufficient for
+harmonization, retrieval, analytics, and cross-domain testing. The
+overall outcome of Task 1 will be a harmonized, traceable, and
+knowledge-ready multimodal data repository, beginning with an
+AI-enhanced air-domain foundation and extending to selected soil and/or
+water datasets as data quality and availability allow. This repository,
+together with metadata, quality benchmarks, and readiness indicators,
+will provide the data-curation foundation for downstream retrieval,
+synthesis, analytics, deployment, and continuous-improvement workflows
+under the <span style="color:blue; font-weight:bold;">EM AI R&amp;D
+Roadmap</span>.</p>
+<hr />
+<h3 id="task-2.-ai-enhanced-em-analytics-m1-m6">Task 2. AI-Enhanced EM
+Analytics (M1 – M6)</h3>
+<p>Task 2 will build an analytics workflow for transforming the <span
+style="color:red; font-weight:bold;">[REPLACE: “AI-ready repository” →
+“AI-Ready Dataset repository”]</span> developed in Task 1 into <span
+style="color:red; font-weight:bold;">[REPLACE: “adaptive monitoring and
+early-warning support” → “adaptive &amp; real-time monitoring and early
+warning systems for contamination and critical infrastructure
+failures”]</span> for EM decision-making.</p>
+<p><strong>Task 2.1 Air-domain adaptive monitoring and early-warning
+analytics.</strong> Using the AI-ready repository developed in Task 1,
+we will develop an air-domain analytics workflow that builds on our
+prior EDA and machine-learning analyses of ORR air-domain data. This
+analytics workflow will include EDA to characterize temporal trends,
+spatial patterns, correlations among key air-related variables, and
+clustering patterns associated with extreme weather conditions. It will
+also include machine-learning models for predictive analytics, including
+forecasting selected air-quality indicators, identifying high-risk
+periods or locations, and evaluating variable importance. The workflow
+will support <span style="color:red; font-weight:bold;">[REPLACE:
+“adaptive and near-real-time monitoring concepts for early warning of
+contamination events and critical infrastructure or site-operation
+failures” → “adaptive &amp; real-time monitoring for early warning
+systems for contamination and critical infrastructure failures,
+supporting integrated performance and risk assessment and risk-informed
+decision analyses”]</span>. <span
+style="color:red; font-weight:bold;">[ADD: “Analytics outputs will also
+support optimization of waste treatment processes, remedial systems,
+waste disposition, and site operations, directly contributing to
+Treatment Process Optimization (Focus Area C) at EM sites such as SRS
+and Hanford.”]</span></p>
+<p><strong>Task 2.2 Cross-domain analytics validation using water/soil
+data.</strong> To evaluate whether the air-domain analytics workflow can
+be rapidly adapted to other EM-relevant environmental media, we will
+apply the workflow to representative water or soil datasets selected in
+Task 1. Domain-specific variables, such as contaminant concentration,
+sampling depth, environmental medium, sampling method, location, and
+reporting period, will be mapped to the shared schema and analyzed using
+the same evaluation framework. We will compare results across air and
+water/soil to identify reusable workflow components, domain-specific
+adjustments, and modifications needed for Phase II scale-up. <span
+style="color:red; font-weight:bold;">[ADD: “Validation will also test
+the framework’s ability to support search for critical isotopes and
+characterization of fractured systems, subsurface contamination, and
+liquid waste across different environmental media.”]</span> This task
+will test whether the common schema, analytics-oriented feature
+construction, EDA procedures, and predictive modeling framework can be
+extended beyond the initial air-domain use case. Validation will assess
+whether the workflow can align records across locations and time
+periods, identify patterns and trends, support initial predictive
+analysis, and generate traceable outputs for EM monitoring and decision
+support in additional environmental media. <span
+style="color:red; font-weight:bold;">[ADD: “Cross-domain results will
+inform environmental liability and financial forecasts by providing
+validated predictive capabilities across multiple environmental
+media.”]</span> The outcome will be a validation summary documenting
+reusable components, domain-specific requirements, model-validation
+results, and recommendations for rapid deployment across additional EM
+sites and data domains in Phase II.</p>
+<p>The overall outcome of Task 2 will be an <span
+style="color:blue; font-weight:bold;">AI-enhanced</span> environmental
+monitoring and analytics workflow that transforms the AI-ready
+repository from Task 1 into interpretable and traceable support for EM
+decision-making. The workflow will support EM cleanup site operations,
+including environmental monitoring, remediation, nuclear fuel and waste
+management, <span style="color:red; font-weight:bold;">[REPLACE: “waste
+disposal, storage, transport” → “waste disposal, storage, transport,
+waste disposition”]</span>, and related mission activities. Task 2
+results will provide the validated analytics foundation for the Task 3
+human-in-the-loop decision-making framework.</p>
+</body>
+</html>

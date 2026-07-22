@@ -1,0 +1,132 @@
+api_instructions:
+Endpoint: `https://api771.example.com/api/sites_geojson`
+Method: `GET`
+Handles dataset: `sites_geojson`
+
+Read Data Items
+
+Parameters:
+- `dataset_name` (string, path, required)
+- `start_timestamp` (object, query, optional)
+- `end_timestamp` (object, query, optional)
+- `skip` (integer, query, optional)
+- `limit` (integer, query, optional)
+- `fields` (object, query, optional)
+- `agg` (object, query, optional)
+Response: Successful Response
+
+
+Endpoint: `https://api771.example.com/api/sites_list`
+Method: `GET`
+Handles dataset: `sites_list`
+
+Read Data Items
+
+Parameters:
+- `dataset_name` (string, path, required)
+- `start_timestamp` (object, query, optional)
+- `end_timestamp` (object, query, optional)
+- `skip` (integer, query, optional)
+- `limit` (integer, query, optional)
+- `fields` (object, query, optional)
+- `agg` (object, query, optional)
+Response: Successful Response
+
+
+Endpoint: `https://api771.example.com/api/table_fields`
+Method: `GET`
+Handles dataset: `table_fields`
+
+Read Data Items
+
+Parameters:
+- `dataset_name` (string, path, required)
+- `start_timestamp` (object, query, optional)
+- `end_timestamp` (object, query, optional)
+- `skip` (integer, query, optional)
+- `limit` (integer, query, optional)
+- `fields` (object, query, optional)
+- `agg` (object, query, optional)
+Response: Successful Response
+
+
+new_prompt:
+Title: Create a "dataVis1" Component for a React + Tailwind Application
+
+Prompt:
+
+Design a React component named "dataVis1" using Tailwind for styling. This component should allow users to interact with various data visualization tools. Include the following features:
+
+- Access data from these endpoints:
+  - Geographic site data: https://api771.example.com/api/sites_geojson
+  - List of sites: https://api771.example.com/api/sites_list
+  - Available data fields: https://api771.example.com/api/table_fields
+  - General data API: https://api771.example.com/api
+
+- The component should present an interface where users can:
+  - Choose a site from a dropdown menu.
+  - Select data parameters and specify how they should be summarized (hourly, daily, monthly, or not at all).
+  - Pick a date range for the data query using an interactive calendar.
+
+- The page should include:
+  - A map showing site locations with markers, highlighting the selected site.
+  - Two visualizations:
+    - A time series chart that updates based on the user's selections.
+    - A box plot chart for statistical representation of the data.
+
+The goal is to create a user-friendly interface that allows
+
+svg_code:
+<svg width="100%" height="100%" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="50" fill="#e0e0e0" />
+  <text x="20" y="30" font-family="Arial" font-size="16">Dashboard Header</text>
+
+  <!-- Main Grid -->
+  <rect x="0" y="50" width="280" height="450" fill="#f7f7f7" stroke="#bdbdbd" stroke-dasharray="5,5" />
+  <text x="20" y="75" font-family="Courier New" font-size="12" fill="#757575">Control Panel</text>
+
+  <!-- Controls -->
+  <rect x="20" y="90" width="240" height="40" fill="#ffffff" />
+  <text x="25" y="115" font-family="Verdana" font-size="10" fill="#212121">Site Selector</text>
+  
+  <rect x="20" y="140" width="240" height="40" fill="#ffffff" />
+  <text x="25" y="165" font-family="Verdana" font-size="10" fill="#212121">Param Dropdown</text>
+  
+  <rect x="20" y="190" width="240" height="40" fill="#ffffff" />
+  <text x="25" y="215" font-family="Verdana" font-size="10" fill="#212121">Aggregation Type</text>
+
+  <rect x="20" y="240" width="240" height="40" fill="#ffffff" />
+  <text x="25" y="265" font-family="Verdana" font-size="10" fill="#212121">Date Range Picker</text>
+
+  <!-- Main Content Area -->
+  <rect x="300" y="50" width="480" height="450" fill="#f1f8e9" />
+  <text x="320" y="75" font-family="Arial" font-size="14" fill="#424242">Interactive Map Area</text>
+
+  <!-- Footer -->
+  <rect x="0" y="510" width="800" height="90" fill="#eeeeee" />
+  <text x="20" y="540" font-family="Times New Roman" font-size="12" fill="#616161">Footer Info &amp; Links</text>
+
+  <!-- Unique Element: Search Bar -->
+  <rect x="320" y="480" width="460" height="25" fill="#ffffff" stroke="#9e9e9e"/>
+  <text x="325" y="495" font-family="Tahoma" font-size="10" fill="#424242">Search Bar</text>
+
+  <!-- Decorative Shadow -->
+  <rect x="290" y="40" width="500" height="470" fill="none" stroke="#b0bec5" stroke-width="2" opacity="0.5"/>
+</svg>
+
+set_type:
+waterfall
+
+tree_view:
+src
+├── apps
+│   ├── dataVis1
+│   │   └── dataVis1.jsx
+│   ├── NaturalResourcesVault
+│   │   └── NaturalResourcesVault.jsx
+│   ├── Homepage
+│   │   └── Homepage.jsx
+│   ├── index
+│   │   └── index.jsx
+└── index.jsx

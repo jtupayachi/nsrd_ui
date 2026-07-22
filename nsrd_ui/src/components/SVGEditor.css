@@ -1,0 +1,103 @@
+/* ── SVG Editor ───────────────────────────────── */
+.sve {
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* toolbar */
+.sve-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.4rem 0.6rem;
+  background: #f5f5f7;
+  border-bottom: 1px solid #e5e5e7;
+  flex-wrap: wrap;
+}
+.sve-tool {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.sve-tool:hover { border-color: #d2d2d7; }
+.sve-tool.on {
+  background: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
+
+.sve-sep {
+  width: 1px;
+  height: 20px;
+  background: #d2d2d7;
+  margin: 0 4px;
+}
+
+.sve-color {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.sve-color input[type="color"] {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #d2d2d7;
+  border-radius: 4px;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+.sve-color input[type="color"]::-webkit-color-swatch-wrapper { padding: 2px; }
+.sve-color input[type="color"]::-webkit-color-swatch { border: none; border-radius: 2px; }
+
+.sve-act {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #d2d2d7;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.sve-act:hover:not(:disabled) { background: #f0f0f0; }
+.sve-act:disabled { opacity: 0.35; cursor: default; }
+
+.sve-save {
+  background: #34c759;
+  color: #fff;
+  border-color: #34c759;
+}
+.sve-save:hover:not(:disabled) { background: #2db84d; }
+
+/* canvas */
+.sve-canvas {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: #fff;
+  cursor: crosshair;
+  overflow: hidden;
+  user-select: none;
+}
+
+.sve-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #c7c7cc;
+  font-size: 0.85rem;
+  pointer-events: none;
+}

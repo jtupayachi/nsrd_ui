@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: ornl-letter-example.tex
+% Author: Sam Crawford (crawfordst.@ornl.gov)
+% Date: Thursday May 16 13:41:46 2024
+%
+% Example of ORNL Letter class
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{ornl-letter}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\begin{document}
+\graphicspath{{./}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   TYPIST INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use these fields if you are composing this letter on behalf of the sender.
+% Leave blank or comment out if not using.
+
+\typistname{Dean P. Martin} % Provide typist name
+\typistint{dm} % Provide lowercase initials
+\typistemail{dm@example.com} %Provide typist email
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   SENDER INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sendername{Xiao-Ying Yu} % Add sender's name
+\senderint{SS} % Add sender's initials
+\sendertitle{Director} % Add sender's title; comment out if not using
+\senderemail{yuxiaoying@ornl.gov} % Add sender's email address
+\senderphone{(865) 574-4628} % Add sender's phone number
+\senderadd{ % Add sender's return address
+            PO Box 2008 \\% ORNL USPS mailing address; separate lines with \\
+            Oak Ridge, TN 37831
+            }
+          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	ADDRESSEE/RECIPIENT INFORMATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\recipientname{Editor-in-Chief} % Add recipient's name
+\recipienttitle{Science of the Total Environment} % Add recipient's title; comment out if not using
+\recipientemail{} % Add recipient's email address
+% \recipientphone{(555) 555-5555} % Add recipient's phone number
+\recipientadd{Elsevier% Add recipient's return address; separate lines with \\
+            % Acme Chemical Company \\% Company name
+            % 221 Broad Street \\% Street address
+            % Minneapolis, Minnesota 22001 % City, state (spell out), and zip code
+            }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	LETTER HEADING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\date{May 15, 2024} % Uncomment to specify date; will otherwise print today's date
+
+\subjectline{} % suppress default "SUBJECT LINE UNDEFINED"
+
+% \salutation{Dr. Sisi Zlatanova} % Enter your salutation
+
+\printaddblock % Prints addressee elements defined above.
+
+
+Dear Editor,
+
+We appreciate the time and effort that the reviewers dedicated to providing thoughtful and constructive feedback on our manuscript. Their detailed comments have greatly helped us improve the quality, clarity, and rigor of the work.
+
+We are pleased to resubmit the revised version of our manuscript entitled \textbf{``Context-Aware Visual Prompting: Automating Geospatial Web Dashboards Using Large Language Models for Decision Support''} for consideration as an original research article in \textit{Science of the Total Environment}. This resubmission addresses all reviewer comments raised and incorporates substantial new content as detailed in the accompanying Response to Reviewers. The point-by-point response is attached. The main changes are the following.
+
+\begin{enumerate}
+\item A demonstration video of the deployed interface is available at: \url{https://youtu.be/yTfeu5sCaKQ}
+
+\item The accompanying source code and reproducibility scripts are released at: \url{https://github.com/jtupayachi/UI_LLM_DATA}
+
+\item Introduction was restructured to add an end-user motivation paragraph (digital twins as web-delivered decision-support tools, customizing and extending existing infrastructures rather than rebuilding them).
+
+\item Literature Review (Section~2) was expanded with new 2025 and 2026 references on agentic LLM frameworks, RAG-based code generation, LLM-driven GIS, ontology engineering, and digital-twin decision support.
+
+\item Knowledge gap (Subsection~2.2) was revised by rewriting the ``insufficient UI layout complexity'' gap, adding a fourth gap on ``limited UI functionality coverage,'' and clarifying that UI-driven development does not inherently require visual processing of bitmap mockups.
+
+\item New Data Description and Exploratory Analysis subsection (3.1) was revised to provide details on  the two corpora (\textsc{CAVP\_V1} and the runtime CSV/GeoJSON corpus), their components, generation, pre-processing, and limitations, with an explicit comparison against the datasets in Table~S4.
+
+\item Repair Agent description (Subsection~3.4) was clarified following reviewer 2's suggestions.
+
+\item New Experiment Design subsection (4.1) was added to justify the choice of Llama~3~70B for initial exploration and Qwen3 Coder for the scaled-up phase, lists the independent and dependent variables explicitly, and states hypotheses H1--H4. The construct-validity rationale for retaining BLEU in the initial exploration (comparability with prior work and as a cheap pre-filter before Pass@$k$) and adopting CodeBLEU in the scaled-up phase is now made explicit.
+
+\item The restructured implementation and evaluation section was revised in the Initial Exploration (Subsection~4.2; H1--H3 versus the Pass@$k$ and BLEU/ChrF / TER per-page) and Scaled-Up Experiments (Subsection~4.3; H4) subsections. The scaled-up subsection introduces the deployed online instance at \url{demo2.recoil.ise.utk.edu} exercising the full sketch-to-functional-interface. 
+
+\item  New Threats to Validity section was added to following the four categories of Wohlin et al.\ (2024) (internal, external, construct, conclusion) with explicit mitigations.
+
+\item New Implications (Section~6) and Future Work (Section~7) sections were added to compare our findings with recent work. Both short-term and long-term extensions were described.
+
+\item  Mandatory Data Availability statement were added after the Conclusion declaring \textsc{CAVP\_V1} and GitHub.
+
+\item  References were updated following the journal's Guide for Authors, with mistyped entries corrected and DOIs/URLs added to the new citations.
+
+\item We made revisions of Figure 1 and Figure 3 to clearly show repair agent and reiteration loop, which better illustrates the single and multi-pages. 
+
+\item  We also made editorial revisions throughout to improve readability of the manuscript. 
+
+\end{enumerate}
+
+To the best of our knowledge, this is the first framework to combine SVG-based visual prompting, an ontological knowledge base, and a build-feedback multi-agent repair loop for end-to-end automated generation of deployable, domain-specific geospatial web dashboards. This work directly advances the Science of the Total Environment's mission by providing domain scientists and environmental risk analysts with an automated, reliable pathway from design intent to interactive decision-support tooling.
+
+This manuscript is resubmitted solely for your consideration following the major revision. All authors have given approval for this resubmission.
+
+Thank you for considering our revised manuscript. We look forward to your feedback.
+
+
+
+
+Sincerely,\\[2ex]
+\includegraphics[width=0.35\textwidth]{signature.png}
+
+Xiao-Ying Yu, Ph.D.\\
+Distinguished Scientist and Group Lead\\
+Materials Science and Technology Division\\
+Oak Ridge National Laboratory\\
+Email: yuxiaoying@ornl.gov
+
+
+
+\end{document}

@@ -1,0 +1,92 @@
+.ms {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Provider buttons */
+.ms-providers {
+  display: flex;
+  gap: 0;
+  background: #e5e5e7;
+  border-radius: 8px;
+  padding: 3px;
+}
+.ms-prov {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+.ms-prov.on {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  color: #007aff;
+}
+
+/* status dot */
+.ms-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.ms-dot.green { background: #34c759; }
+.ms-dot.red   { background: #ff3b30; }
+.ms-dot.gray  { background: #86868b; }
+
+/* ── Dual model pair ──────────────────── */
+.ms-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f5f5f7;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  padding: 0.4rem 0.65rem;
+}
+
+.ms-role {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ms-role-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+  padding-left: 2px;
+}
+
+.ms-pair-arrow {
+  font-size: 1.1rem;
+  color: #86868b;
+  margin: 0.8rem 0.15rem 0;
+}
+
+/* Model dropdown */
+.ms-select {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  background: #fff;
+  cursor: pointer;
+  min-width: 150px;
+}
+.ms-select:focus {
+  outline: none;
+  border-color: #007aff;
+}

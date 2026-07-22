@@ -1,0 +1,29 @@
+.fu-zone {
+  border: 2px dashed #d2d2d7;
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.fu-zone:hover,
+.fu-zone.drag {
+  border-color: #007aff;
+  background: #f0f6ff;
+}
+.fu-icon {
+  font-size: 1.5rem;
+}
+.fu-text {
+  font-size: 0.82rem;
+  color: #86868b;
+}
+.fu-err {
+  font-size: 0.8rem;
+  color: #ff3b30;
+  margin-top: 0.25rem;
+}

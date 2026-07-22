@@ -1,0 +1,11 @@
+We're designing a new main page for our DOE GIS dashboard using React and Tailwind CSS. Here's what we need:
+
+1. The page should have a React component called `HomePage` with the necessary structure.
+2. At the top, include a broad banner image that stretches across the entire width, using Tailwind's responsive settings to ensure it looks good on all devices.
+3. Below the banner, center a project title and description to introduce the dashboard.
+4. Create a set of three interactive thumbnail cards arranged in a grid format. Each card should have an image, a descriptive label, and a link. Use Tailwind for styling, incorporating visual effects when hovering over the cards, like making them slightly larger, adding a shadow, and highlighting with a ring.
+5. Ensure each card links to a specific section of the dashboard, with labels such as Biobasedmaterialsviewer, Greentechnologiestracker, Organicfarmingtracker, Plasticwasteengine, and Waterscarcityconnect.
+6. Make sure the images are imported at the beginning of the file and incorporated using `img` tags.
+7. Include a test file using Jest that checks:
+   - The banner appears correctly.
+   - The title and description are displayed.

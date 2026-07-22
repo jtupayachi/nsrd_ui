@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 900" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow-md" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow-sm" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+    <linearGradient id="blue600" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- bg-slate-50 -->
+  <rect width="1300" height="900" rx="12" fill="#f8fafc"/>
+
+  <!-- ── Navbar ── -->
+  <rect width="1300" height="64" fill="white"/>
+  <line x1="0" y1="64" x2="1300" y2="64" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="28" y="16" width="32" height="32" rx="8" fill="#2563eb"/>
+  <text x="44" y="39" text-anchor="middle" fill="white" font-size="20" font-weight="700">E</text>
+  <text x="72" y="42" fill="#0f172a" font-size="26" font-weight="700" letter-spacing="-0.5">DOE EM</text>
+  <text x="196" y="42" fill="#64748b" font-size="26" font-weight="400">Decision Support</text>
+  <text x="820" y="42" fill="#64748b" font-size="22" font-weight="500">Dashboard</text>
+  <text x="980" y="42" fill="#2563eb" font-size="22" font-weight="600">Chat</text>
+  <rect x="972" y="52" width="48" height="3" rx="1.5" fill="#2563eb"/>
+  <text x="1080" y="42" fill="#64748b" font-size="22" font-weight="500">Scenarios</text>
+  <circle cx="1256" cy="32" r="20" fill="#e2e8f0"/>
+  <text x="1256" y="39" text-anchor="middle" fill="#64748b" font-size="18" font-weight="600">JD</text>
+
+  <!-- ══════════ LEFT TOP — Compact Scenario Config ══════════ -->
+  <rect x="28" y="84" width="580" height="280" rx="16" fill="white" filter="url(#shadow-md)"/>
+  <text x="52" y="120" fill="#0f172a" font-size="28" font-weight="700" letter-spacing="-0.5">Scenario Config</text>
+  <rect x="340" y="100" width="90" height="30" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+  <circle cx="358" cy="115" r="4" fill="#22c55e"/>
+  <text x="370" y="122" fill="#16a34a" font-size="16" font-weight="600">Active</text>
+  <!-- Details button -->
+  <rect x="444" y="100" width="140" height="30" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="514" y="121" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="600">&#x25B8; Show Details</text>
+  <line x1="52" y1="136" x2="584" y2="136" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <text x="52" y="162" fill="#94a3b8" font-size="18">Contaminant (mg/L)</text>
+  <rect x="52" y="170" width="280" height="42" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="72" y="198" fill="#0f172a" font-size="22" font-weight="500">0.45</text>
+  <text x="346" y="162" fill="#94a3b8" font-size="18">Strategy</text>
+  <rect x="346" y="170" width="238" height="42" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="366" y="198" fill="#334155" font-size="20">Pump-and-treat &#x25BE;</text>
+
+  <!-- Row 2 -->
+  <text x="52" y="236" fill="#94a3b8" font-size="18">Duration</text>
+  <rect x="52" y="244" width="160" height="42" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="72" y="272" fill="#334155" font-size="22">24 months</text>
+  <rect x="228" y="250" width="40" height="22" rx="11" fill="#2563eb"/>
+  <circle cx="256" cy="261" r="9" fill="white"/>
+  <text x="276" y="268" fill="#334155" font-size="18">HIL</text>
+  <rect x="328" y="250" width="40" height="22" rx="11" fill="#2563eb"/>
+  <circle cx="356" cy="261" r="9" fill="white"/>
+  <text x="376" y="268" fill="#334155" font-size="18">Audit</text>
+  <rect x="444" y="244" width="140" height="42" rx="10" fill="url(#blue600)"/>
+  <text x="514" y="272" text-anchor="middle" fill="white" font-size="22" font-weight="600">&#x25B6; Run</text>
+
+  <!-- Metric pills -->
+  <rect x="52" y="302" width="120" height="36" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="72" y="326" fill="#0f172a" font-size="20" font-weight="700">3</text>
+  <text x="96" y="326" fill="#94a3b8" font-size="18">Wells</text>
+  <rect x="184" y="302" width="160" height="36" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="204" y="326" fill="#0f172a" font-size="20" font-weight="700">0.45</text>
+  <text x="248" y="326" fill="#94a3b8" font-size="18">mg/L</text>
+  <rect x="356" y="302" width="120" height="36" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+  <text x="376" y="326" fill="#16a34a" font-size="20" font-weight="700">&#x2713; Pass</text>
+  <!-- History button -->
+  <rect x="488" y="302" width="96" height="36" rx="10" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="536" y="326" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="600">History &#x25B8;</text>
+
+  <!-- ══════════ LEFT BOTTOM — GIS MAP with TOPO ══════════ -->
+  <rect x="28" y="380" width="580" height="496" rx="16" fill="white" filter="url(#shadow-md)"/>
+  <text x="52" y="416" fill="#0f172a" font-size="28" font-weight="700" letter-spacing="-0.5">Site Map — EM Facility</text>
+  <!-- Layer buttons -->
+  <rect x="370" y="396" width="62" height="28" rx="6" fill="#2563eb"/>
+  <text x="401" y="416" text-anchor="middle" fill="white" font-size="14" font-weight="600">Topo</text>
+  <rect x="438" y="396" width="62" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="469" y="416" text-anchor="middle" fill="#64748b" font-size="14">Layers</text>
+  <rect x="506" y="396" width="78" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="545" y="416" text-anchor="middle" fill="#64748b" font-size="14">Satellite</text>
+  <line x1="52" y1="432" x2="584" y2="432" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Map canvas -->
+  <rect x="44" y="440" width="556" height="380" rx="12" fill="#e8efe3" stroke="#cbd5c0" stroke-width="1"/>
+
+  <!-- ═══ TOPOGRAPHIC CONTOUR LINES ═══ -->
+  <!-- Elevation band fills (subtle) -->
+  <path d="M44,820 Q100,780 170,790 Q260,800 340,770 Q420,750 500,780 Q560,800 600,790 L600,820 Z" fill="#d4e0cc" opacity="0.4"/>
+  <path d="M44,760 Q120,720 200,740 Q300,760 380,720 Q460,700 540,730 Q580,750 600,740 L600,820 Q560,800 500,780 Q420,750 340,770 Q260,800 170,790 Q100,780 44,820 Z" fill="#c8d9be" opacity="0.3"/>
+  <path d="M44,700 Q140,660 240,680 Q330,700 400,660 Q470,640 550,670 Q580,690 600,680 L600,740 Q580,750 540,730 Q460,700 380,720 Q300,760 200,740 Q120,720 44,760 Z" fill="#bcd0b2" opacity="0.25"/>
+
+  <!-- Contour lines with elevation labels -->
+  <path d="M44,790 Q100,760 180,770 Q270,790 350,755 Q430,735 510,765 Q560,780 600,775" fill="none" stroke="#8faa7e" stroke-width="1" opacity="0.7"/>
+  <text x="555" y="772" fill="#6b8a5e" font-size="10" opacity="0.8">100m</text>
+
+  <path d="M44,740 Q130,700 220,720 Q310,745 390,700 Q470,680 540,710 Q570,730 600,720" fill="none" stroke="#8faa7e" stroke-width="1" opacity="0.7"/>
+  <text x="555" y="717" fill="#6b8a5e" font-size="10" opacity="0.8">150m</text>
+
+  <path d="M44,690 Q150,650 250,670 Q340,690 410,650 Q480,630 550,660 Q580,675 600,665" fill="none" stroke="#8faa7e" stroke-width="1.2" opacity="0.8"/>
+  <text x="555" y="662" fill="#6b8a5e" font-size="10" opacity="0.8">200m</text>
+
+  <path d="M44,640 Q160,600 260,620 Q340,640 410,600 Q480,580 550,610 Q580,625 600,615" fill="none" stroke="#8faa7e" stroke-width="1" opacity="0.6"/>
+  <text x="555" y="612" fill="#6b8a5e" font-size="10" opacity="0.8">250m</text>
+
+  <path d="M44,590 Q130,560 220,570 Q310,585 390,555 Q460,540 530,565 Q570,580 600,570" fill="none" stroke="#8faa7e" stroke-width="1" opacity="0.6"/>
+  <text x="555" y="567" fill="#6b8a5e" font-size="10" opacity="0.8">300m</text>
+
+  <path d="M44,540 Q140,510 240,520 Q330,535 400,510 Q470,495 540,520 Q575,535 600,525" fill="none" stroke="#8faa7e" stroke-width="0.8" opacity="0.5"/>
+
+  <path d="M44,490 Q150,465 260,475 Q340,490 420,465 Q490,450 560,475 Q585,490 600,480" fill="none" stroke="#8faa7e" stroke-width="0.8" opacity="0.5"/>
+
+  <path d="M44,455 Q160,440 280,445 Q370,455 440,440 Q510,430 570,445 Q590,455 600,450" fill="none" stroke="#8faa7e" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Roads -->
+  <line x1="100" y1="440" x2="100" y2="820" stroke="#d6d3c8" stroke-width="3"/>
+  <line x1="44" y1="580" x2="600" y2="580" stroke="#d6d3c8" stroke-width="3"/>
+  <line x1="300" y1="440" x2="300" y2="820" stroke="#d6d3c8" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Water body -->
+  <ellipse cx="480" cy="520" rx="80" ry="40" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1.5" opacity="0.7"/>
+  <text x="480" y="526" text-anchor="middle" fill="#3b82f6" font-size="14" font-weight="600">Retention Pond</text>
+
+  <!-- ═══ HIGHLIGHTED CONTAMINATION ZONE ═══ -->
+  <polygon points="180,600 280,570 360,590 340,680 240,700 170,660" fill="#ef4444" fill-opacity="0.18" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8,4" filter="url(#glow)"/>
+  <text x="265" y="640" text-anchor="middle" fill="#dc2626" font-size="18" font-weight="700">Contamination</text>
+  <text x="265" y="660" text-anchor="middle" fill="#dc2626" font-size="18" font-weight="700">Zone</text>
+
+  <!-- Remediation highlighted area -->
+  <polygon points="380,620 440,600 490,630 470,690 400,700" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="485" y="660" text-anchor="middle" fill="#d97706" font-size="14" font-weight="600">Remediation</text>
+  <text x="485" y="676" text-anchor="middle" fill="#d97706" font-size="14" font-weight="600">Active</text>
+
+  <!-- Well markers -->
+  <circle cx="200" cy="620" r="10" fill="white" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="200" y="626" text-anchor="middle" fill="#dc2626" font-size="12" font-weight="700">7</text>
+  <text x="218" y="614" fill="#dc2626" font-size="14" font-weight="600">0.3 mg/L</text>
+
+  <circle cx="310" cy="650" r="10" fill="white" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="310" y="656" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="700">4</text>
+  <text x="328" y="644" fill="#d97706" font-size="14" font-weight="600">0.45 mg/L</text>
+
+  <circle cx="160" cy="510" r="10" fill="white" stroke="#22c55e" stroke-width="2.5"/>
+  <text x="160" y="516" text-anchor="middle" fill="#22c55e" font-size="12" font-weight="700">2</text>
+  <text x="178" y="504" fill="#16a34a" font-size="14" font-weight="600">0.08 mg/L</text>
+
+  <!-- Buildings -->
+  <rect x="120" y="470" width="50" height="35" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+  <text x="145" y="493" text-anchor="middle" fill="#475569" font-size="11" font-weight="600">Bldg A</text>
+  <rect x="400" y="470" width="50" height="35" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+  <text x="425" y="493" text-anchor="middle" fill="#475569" font-size="11" font-weight="600">Bldg B</text>
+  <rect x="440" y="740" width="55" height="35" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+  <text x="467" y="763" text-anchor="middle" fill="#475569" font-size="11" font-weight="600">Tank F</text>
+
+  <!-- Legend -->
+  <rect x="56" y="755" width="220" height="56" rx="8" fill="white" fill-opacity="0.92" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="74" cy="772" r="5" fill="#dc2626"/>
+  <text x="86" y="777" fill="#334155" font-size="13">Contamination</text>
+  <circle cx="74" cy="792" r="5" fill="#f59e0b"/>
+  <text x="86" y="797" fill="#334155" font-size="13">Remediation</text>
+  <circle cx="178" cy="772" r="5" fill="#22c55e"/>
+  <text x="190" y="777" fill="#334155" font-size="13">Clean</text>
+  <rect x="170" y="786" width="16" height="10" fill="none" stroke="#8faa7e" stroke-width="1"/>
+  <text x="190" y="797" fill="#334155" font-size="13">Contour</text>
+
+  <!-- Scale bar -->
+  <line x1="480" y1="800" x2="580" y2="800" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="480" y1="796" x2="480" y2="804" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="580" y1="796" x2="580" y2="804" stroke="#64748b" stroke-width="1.5"/>
+  <text x="530" y="796" text-anchor="middle" fill="#64748b" font-size="13">500 m</text>
+
+  <!-- ══════════ RIGHT PANEL — CHATBOT with TIMESTAMPS ══════════ -->
+  <rect x="636" y="84" width="636" height="792" rx="16" fill="white" filter="url(#shadow-md)"/>
+
+  <!-- Chat header -->
+  <text x="664" y="122" fill="#0f172a" font-size="28" font-weight="700" letter-spacing="-0.5">EM Assistant</text>
+  <line x1="664" y1="138" x2="1244" y2="138" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- ── Message 1: User ── -->
+  <text x="1232" y="162" text-anchor="end" fill="#94a3b8" font-size="14">10:32 AM</text>
+  <rect x="870" y="168" width="370" height="72" rx="18" fill="#2563eb"/>
+  <text x="894" y="200" fill="white" font-size="24">What's the contaminant level</text>
+  <text x="894" y="228" fill="white" font-size="24">at Well-7?</text>
+
+  <!-- ── Message 2: Bot ── -->
+  <text x="664" y="256" fill="#94a3b8" font-size="14">10:32 AM · EM Assistant</text>
+  <rect x="664" y="262" width="430" height="110" rx="18" fill="#f1f5f9"/>
+  <text x="692" y="296" fill="#0f172a" font-size="24">The current reading at Well-7</text>
+  <text x="692" y="328" fill="#0f172a" font-size="24">is 0.3 mg/L — below the</text>
+  <text x="692" y="360" fill="#0f172a" font-size="24">revised threshold of 0.45.</text>
+  <!-- Detail button -->
+  <rect x="664" y="380" width="140" height="30" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="734" y="400" text-anchor="middle" fill="#3b82f6" font-size="15" font-weight="600">&#x1F4CA; View Data</text>
+
+  <!-- ── Message 3: User ── -->
+  <text x="1232" y="425" text-anchor="end" fill="#94a3b8" font-size="14">10:33 AM</text>
+  <rect x="870" y="431" width="370" height="72" rx="18" fill="#2563eb"/>
+  <text x="894" y="463" fill="white" font-size="24">Show contamination zone on</text>
+  <text x="894" y="491" fill="white" font-size="24">the site map.</text>
+
+  <!-- ── Message 4: Bot ── -->
+  <text x="664" y="519" fill="#94a3b8" font-size="14">10:33 AM · EM Assistant</text>
+  <rect x="664" y="525" width="430" height="80" rx="18" fill="#f1f5f9"/>
+  <text x="692" y="559" fill="#0f172a" font-size="24">Highlighted on the map. Red =</text>
+  <text x="692" y="591" fill="#0f172a" font-size="24">active plume, amber = remediation.</text>
+  <!-- Action buttons row -->
+  <rect x="664" y="613" width="130" height="30" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="729" y="633" text-anchor="middle" fill="#3b82f6" font-size="15" font-weight="600">&#x1F5FA; Zoom In</text>
+  <rect x="802" y="613" width="140" height="30" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="872" y="633" text-anchor="middle" fill="#3b82f6" font-size="15" font-weight="600">&#x1F4CB; Full Report</text>
+  <rect x="950" y="613" width="120" height="30" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="1010" y="633" text-anchor="middle" fill="#3b82f6" font-size="15" font-weight="600">&#x21E9; Export</text>
+
+  <!-- ── Bot — results card ── -->
+  <text x="664" y="660" fill="#94a3b8" font-size="14">10:34 AM · EM Assistant</text>
+  <rect x="664" y="666" width="430" height="120" rx="14" fill="white" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow-sm)"/>
+  <!-- <text x="684" y="692" fill="#64748b" font-size="16" font-weight="500">&#60;SiteOverview /&#62;</text> -->
+  <line x1="684" y1="700" x2="1074" y2="700" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="684" y="724" fill="#0f172a" font-size="22" font-weight="600">Well-7: 0.3  ·  Well-4: 0.45  ·  Well-2: 0.08</text>
+  <text x="684" y="752" fill="#16a34a" font-size="20" font-weight="600">&#x2713; 2 of 3 wells below threshold</text>
+  <!-- Expand button -->
+  <rect x="684" y="762" width="120" height="26" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="744" y="780" text-anchor="middle" fill="#3b82f6" font-size="14" font-weight="600">Expand &#x25B8;</text>
+
+  <!-- Provenance -->
+  <text x="664" y="810" fill="#94a3b8" font-size="16">Responses versioned via W3C PROV · Audit trail active</text>
+
+  <!-- Chat input -->
+  <rect x="664" y="828" width="470" height="52" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="692" y="860" fill="#94a3b8" font-size="24">Ask a question...</text>
+  <!-- Send button -->
+  <circle cx="1216" cy="854" r="28" fill="url(#blue600)"/>
+  <line x1="1216" y1="870" x2="1216" y2="840" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <polyline points="1204,850 1216,838 1228,850" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>

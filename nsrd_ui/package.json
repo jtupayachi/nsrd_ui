@@ -1,0 +1,62 @@
+{
+  "name": "nsrd-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^16.18.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.0",
+    "swagger-parser": "^10.0.3",
+    "js-yaml": "^4.1.0",
+    "axios": "^1.6.0",
+    "@apidevtools/swagger-parser": "^10.1.0",
+    "util": "^0.12.5",
+    "url": "^0.11.0",
+    "buffer": "^6.0.3",
+    "stream-browserify": "^3.0.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "assert": "^2.0.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "@babel/parser": "^7.24.0",
+    "@langchain/ollama": "^0.2.0",
+    "@langchain/core": "^0.3.0",
+    "zod": "^3.23.0"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:dev": "docker-compose --profile dev up nsrd-ui-dev"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "react-app-rewired": "^2.2.1"
+  }
+}

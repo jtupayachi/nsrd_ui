@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 430">
+  <defs>
+    <marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#334155"/>
+    </marker>
+    <marker id="al" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L8 4L0 8z" fill="#94a3b8"/>
+    </marker>
+    <style><![CDATA[
+      text{font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
+      .t{font:700 15px ui-sans-serif,system-ui,sans-serif;fill:#0f172a}
+      .st{font:400 9px ui-sans-serif,system-ui,sans-serif;fill:#64748b}
+      .h{font:700 10px ui-sans-serif,system-ui,sans-serif;fill:#0f172a}
+      .s{font:400 9px ui-sans-serif,system-ui,sans-serif;fill:#475569}
+      .m{font:500 8.5px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#334155}
+      .p{font:600 8px ui-sans-serif,system-ui,sans-serif;fill:#0f172a}
+      .ln{font:700 8px ui-sans-serif,system-ui,sans-serif;fill:#64748b;letter-spacing:.06em;text-transform:uppercase}
+    ]]></style>
+  </defs>
+  <rect width="1100" height="430" fill="#fff"/>
+  <text x="24" y="20" class="t">Workflow with Runtime Repair Loop</text>
+  <text x="24" y="32" class="st">requirements &#x2192; generation &#x2192; build &#x2192; runtime review &#x2192; fixing agent &#x2192; patched artifacts</text>
+  <rect x="18" y="40" width="1064" height="16" rx="3" fill="#f1f5f9"/>
+  <text x="56" y="51" class="ln">User</text>
+  <text x="190" y="51" class="ln">Generator UI</text>
+  <text x="390" y="51" class="ln">Build / Runtime</text>
+  <text x="612" y="51" class="ln">Fixing Agent</text>
+  <text x="892" y="51" class="ln">Output</text>
+  <line x1="140" y1="58" x2="140" y2="380" stroke="#e2e8f0" stroke-width=".5"/>
+  <line x1="340" y1="58" x2="340" y2="380" stroke="#e2e8f0" stroke-width=".5"/>
+  <line x1="554" y1="58" x2="554" y2="380" stroke="#e2e8f0" stroke-width=".5"/>
+  <line x1="840" y1="58" x2="840" y2="380" stroke="#e2e8f0" stroke-width=".5"/>
+
+  <!-- Step 1: Describe intent -->
+  <rect x="26" y="64" width="108" height="72" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="34" y="76" class="h">1 Describe intent</text>
+  <text x="34" y="88" class="s">NL spec:</text>
+  <text x="34" y="100" class="s">&#x2022; KPI cards</text>
+  <text x="34" y="110" class="s">&#x2022; Map + towers</text>
+  <text x="34" y="120" class="s">&#x2022; Charts + alerts</text>
+
+  <!-- Step 1b: Requirements panel -->
+  <rect x="148" y="64" width="184" height="72" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="156" y="76" class="h">Requirements panel</text>
+  <rect x="156" y="82" width="90" height="12" rx="6" fill="#e0f2fe" stroke="#bae6fd" stroke-width=".5"/>
+  <text x="162" y="91" class="p">INPUT REQUIREMENTS</text>
+  <text x="156" y="108" class="m">"Dashboard with KPI cards&#x2026;"</text>
+  <text x="156" y="120" class="m">"&#x2026;map&#x2026; charts&#x2026; alerts&#x2026;"</text>
+  <line x1="134" y1="100" x2="146" y2="100" stroke="#334155" stroke-width="1.2" marker-end="url(#a)"/>
+
+  <!-- Step 2: Generate -->
+  <rect x="148" y="144" width="184" height="86" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="156" y="156" class="h">2 Generate (LLM &#x2192; Code)</text>
+  <text x="156" y="168" class="s">Spec &#x2192; project files + page code</text>
+  <rect x="156" y="174" width="82" height="42" rx="3" fill="#ede9fe" stroke="#ddd6fe" stroke-width=".5"/>
+  <text x="162" y="186" class="p">FILES</text>
+  <text x="162" y="196" class="m">App.jsx</text>
+  <text x="162" y="206" class="m">viz.jsx</text>
+  <rect x="244" y="174" width="82" height="42" rx="3" fill="#ecfeff" stroke="#a5f3fc" stroke-width=".5"/>
+  <text x="250" y="186" class="p">DATA</text>
+  <text x="250" y="196" class="m">viz.csv</text>
+  <text x="250" y="206" class="m">App.css</text>
+  <line x1="240" y1="136" x2="240" y2="142" stroke="#334155" stroke-width="1.2" marker-end="url(#a)"/>
+
+  <!-- Step 3: Build trigger -->
+  <rect x="348" y="64" width="196" height="42" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="356" y="76" class="h">3 Build trigger</text>
+  <rect x="356" y="82" width="76" height="14" rx="7" fill="#dcfce7" stroke="#bbf7d0" stroke-width=".5"/>
+  <text x="364" y="92" class="p">Save &amp; Rebuild</text>
+  <path d="M332 190 C344 190,344 85,346 85" stroke="#334155" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+
+  <!-- Step 4: Runtime review -->
+  <rect x="348" y="114" width="196" height="72" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="356" y="126" class="h">4 Runtime review</text>
+  <text x="356" y="138" class="s">Automated checks</text>
+  <rect x="356" y="142" width="110" height="28" rx="3" fill="#fff7ed" stroke="#fed7aa" stroke-width=".5"/>
+  <text x="362" y="154" class="p">RUNTIME REVIEW</text>
+  <text x="362" y="164" class="m">1 issue found &amp; fixed</text>
+  <text x="356" y="180" class="st">severity logic error</text>
+  <line x1="446" y1="106" x2="446" y2="112" stroke="#334155" stroke-width="1.2" marker-end="url(#a)"/>
+
+  <!-- Step 4b: Model config -->
+  <rect x="348" y="194" width="196" height="52" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="356" y="206" class="h">Model config</text>
+  <text x="356" y="220" class="m">qwen3-next (50.4 GB)</text>
+  <text x="356" y="232" class="m">qwen3-coder-next (51.7 GB)</text>
+  <rect x="356" y="236" width="42" height="10" rx="5" fill="#fee2e2" stroke="#fecaca" stroke-width=".4"/>
+  <text x="362" y="244" class="p">Cancel</text>
+  <line x1="446" y1="186" x2="446" y2="192" stroke="#334155" stroke-width="1.2" marker-end="url(#a)"/>
+
+  <!-- Step 5: Fixing Agent -->
+  <rect x="562" y="64" width="270" height="166" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="570" y="76" class="h">5 Fixing Agent (Issue &#x2192; Patch)</text>
+  <text x="570" y="88" class="s">Reads runtime issue, edits source.</text>
+  <rect x="570" y="94" width="250" height="36" rx="3" fill="#eef2ff" stroke="#c7d2fe" stroke-width=".5"/>
+  <text x="576" y="106" class="p">FIXING AGENT</text>
+  <text x="576" y="116" class="m">FILE: src/pages/viz.jsx</text>
+  <text x="576" y="126" class="m">ISSUE: severity &#x2026; operand</text>
+  <rect x="570" y="136" width="250" height="36" rx="3" fill="#fee2e2" stroke="#fecaca" stroke-width=".5"/>
+  <text x="576" y="148" class="p">Issues found (fixing &#x2026;)</text>
+  <text x="576" y="158" class="m">FIX: ternary / class logic</text>
+  <text x="576" y="168" class="m">instead of concat (broken)</text>
+  <rect x="570" y="178" width="100" height="16" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width=".5"/>
+  <text x="578" y="190" class="p">Running Pipeline &#x2026;</text>
+  <path d="M544 154 C554 154,560 120,560 110" stroke="#334155" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+
+  <!-- Step 6: Output -->
+  <rect x="848" y="64" width="106" height="80" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="856" y="76" class="h">Patched files</text>
+  <text x="856" y="90" class="m">viz.jsx</text>
+  <text x="856" y="102" class="m">App.jsx</text>
+  <text x="856" y="114" class="m">viz.csv</text>
+  <text x="856" y="130" class="st">patched</text>
+  <rect x="848" y="150" width="106" height="44" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width=".7"/>
+  <text x="856" y="162" class="h">Build state</text>
+  <text x="856" y="174" class="st">green when resolved</text>
+  <rect x="856" y="178" width="56" height="12" rx="6" fill="#dcfce7" stroke="#bbf7d0" stroke-width=".4"/>
+  <text x="864" y="187" class="p">Clean run</text>
+  <path d="M832 130 C840 130,846 100,846 100" stroke="#334155" stroke-width="1.2" fill="none" marker-end="url(#a)"/>
+
+  <!-- Closed loop -->
+  <path d="M900 194 C900 260,240 260,240 232" stroke="#94a3b8" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#al)"/>
+  <text x="500" y="274" class="st">Closed loop: patch &#x2192; rebuild &#x2192; re-check &#x2192; adjust</text>
+
+  <!-- Traceability -->
+  <rect x="18" y="288" width="1064" height="12" rx="2" fill="#f8fafc"/>
+  <text x="24" y="297" class="ln">Traceability mapping</text>
+  <text x="26" y="314" class="m">"INPUT REQUIREMENTS" &#x2192; Stage 1</text>
+  <text x="26" y="326" class="m">"GENERATED FILES" / "LLM OUTPUT" &#x2192; Stage 2</text>
+  <text x="26" y="338" class="m">"Save &amp; Rebuild" &#x2192; Stage 3</text>
+  <text x="280" y="314" class="m">"RUNTIME REVIEW (1 ISSUE&#x2026;)" &#x2192; Stage 4</text>
+  <text x="280" y="326" class="m">"Fixing Agent" / "Issues found&#x2026;" &#x2192; Stage 5</text>
+  <text x="280" y="338" class="m">src/pages/viz.jsx &#x2192; patched artifact</text>
+</svg>

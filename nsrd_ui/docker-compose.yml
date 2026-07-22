@@ -1,0 +1,67 @@
+services:
+  nsrd-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nsrd-ui
+    ports:
+      - "8432:80"
+    expose:
+      - "80"
+    volumes:
+      # Mount source — live edits, no rebuild needed
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./server.js:/app/server.js
+      - ./pipeline.js:/app/pipeline.js
+      - ./referenceAnalyzer_rag.js:/app/referenceAnalyzer_rag.js
+      - ./rag_embeddings.py:/app/rag_embeddings.py
+      - ./rag_server.py:/app/rag_server.py
+      - ./sanitizer.js:/app/sanitizer.js
+      - ./referenceAnalyzer.js:/app/referenceAnalyzer.js
+      - ./referenceAnalyzer_rag.js:/app/referenceAnalyzer_rag.js
+      - ./reference_analyzer.py:/app/reference_analyzer.py
+      - ./rag_embeddings.py:/app/rag_embeddings.py
+      - ./fastapi_analyzer.py:/app/fastapi_analyzer.py
+      - ./langchain_agent.js:/app/langchain_agent.js
+      - ./docker-start.sh:/app/docker-start.sh
+      - ./config-overrides.js:/app/config-overrides.js
+      - ./tsconfig.json:/app/tsconfig.json
+      # Mount reference codebases (read-only)
+      - ../reference-codebases:/reference-codebases:ro
+      # Persist build output — bind-mount so host `npm run build` is live in container
+      - ./build:/app/build
+      - projects_data:/app/projects
+      # Persist RAG cache (FAISS index and embeddings)
+      - rag_cache:/app/.cache
+      # Keep baked-in node_modules from image (don't overwrite)
+      - /app/node_modules
+      - /app/templates/react-app/node_modules
+      # Live-mount template files so Tailwind config changes don't need a rebuild
+      - ./templates/react-app/package.json:/app/templates/react-app/package.json
+      - ./templates/react-app/vite.config.js:/app/templates/react-app/vite.config.js
+      - ./templates/react-app/index.html:/app/templates/react-app/index.html
+      - ./templates/react-app/postcss.config.js:/app/templates/react-app/postcss.config.js
+      - ./templates/react-app/tailwind.config.js:/app/templates/react-app/tailwind.config.js
+      - ./templates/react-app/src/main.jsx:/app/templates/react-app/src/main.jsx
+      - ./templates/react-app/src/index.css:/app/templates/react-app/src/index.css
+    environment:
+      - NODE_ENV=production
+      - VIRTUAL_HOST=demo2.recoil.ise.utk.edu
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=demo2.recoil.ise.utk.edu
+      - LETSENCRYPT_EMAIL=jtupayac@vols.utk.edu
+    networks:
+      - default
+      - nsrd-network
+    restart: unless-stopped
+
+volumes:
+  projects_data:
+  rag_cache:
+
+networks:
+  nsrd-network:
+    external: true
+    name: nginx-proxy
+

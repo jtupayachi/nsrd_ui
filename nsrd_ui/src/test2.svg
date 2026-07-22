@@ -1,0 +1,231 @@
+<svg viewBox="0 0 920 580" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+    </marker>
+    <marker id="arrd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- Outer container border -->
+  <rect width="920" height="580" fill="#f8fafc" rx="14" stroke="#334155" stroke-width="2"/>
+
+  <!-- ═══════════════════════════════════════════════════
+       TITLE
+  ═══════════════════════════════════════════════════ -->
+  <text x="460" y="28" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#1e293b">Data Fusion &amp; Quality Control Pipeline</text>
+  <text x="460" y="44" text-anchor="middle" font-size="10" fill="#64748b">ViT image classifier labels each artifact patch sequence → pattern class → quality score → fusion weight</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION A — INPUT STREAMS
+  ═══════════════════════════════════════════════════ -->
+  <rect x="16" y="52" width="590" height="20" rx="5" fill="#334155"/>
+  <text x="311" y="66" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Artifact Streams — Task 1 Acquisition Pipeline</text>
+
+  <!-- Stream boxes: 4 × 143px wide, 8px gap, starting x=16 -->
+  <!-- S1 Meteo -->
+  <rect x="16"  y="76" width="143" height="52" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="87"  y="93"  text-anchor="middle" font-size="10"  font-weight="bold" fill="#1e3a8a">Meteorological &amp; Climate</text>
+  <text x="87"  y="106" text-anchor="middle" font-size="8.5" fill="#1e3a8a">ISD · NCEI · PRISM</text>
+  <text x="87"  y="119" text-anchor="middle" font-size="8"   fill="#3b82f6">Gridded rasters · Station obs</text>
+
+  <!-- S2 Land -->
+  <rect x="167" y="76" width="143" height="52" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="238" y="93"  text-anchor="middle" font-size="10"  font-weight="bold" fill="#14532d">Land Cover &amp; Vegetation</text>
+  <text x="238" y="106" text-anchor="middle" font-size="8.5" fill="#14532d">NLCD · EVT</text>
+  <text x="238" y="119" text-anchor="middle" font-size="8"   fill="#16a34a">Thematic rasters · Tile</text>
+
+  <!-- S3 Topo -->
+  <rect x="318" y="76" width="143" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="389" y="93"  text-anchor="middle" font-size="10"  font-weight="bold" fill="#0c4a6e">Topographic &amp; Hydrologic</text>
+  <text x="389" y="106" text-anchor="middle" font-size="8.5" fill="#0c4a6e">DEM · NHD · NWI</text>
+  <text x="389" y="119" text-anchor="middle" font-size="8"   fill="#0284c7">Raster terrain · Vector networks</text>
+
+  <!-- S4 Bio -->
+  <rect x="469" y="76" width="137" height="52" rx="6" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="537" y="93"  text-anchor="middle" font-size="10"  font-weight="bold" fill="#134e4a">Biological Occurrence</text>
+  <text x="537" y="106" text-anchor="middle" font-size="8.5" fill="#134e4a">BISON · BBS · eBird S&amp;T</text>
+  <text x="537" y="119" text-anchor="middle" font-size="8"   fill="#0d9488">Point clouds · Variable precision</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION B — ViT IMAGE CLASSIFIER
+       (patch grid + attention heads + per-stream pattern labels + score)
+  ═══════════════════════════════════════════════════ -->
+
+  <!-- Arrows: streams → ViT -->
+  <line x1="87"  y1="128" x2="87"  y2="152" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr)"/>
+  <line x1="238" y1="128" x2="238" y2="152" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr)"/>
+  <line x1="389" y1="128" x2="389" y2="152" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr)"/>
+  <line x1="537" y1="128" x2="537" y2="152" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr)"/>
+
+  <!-- ViT outer box -->
+  <rect x="16" y="152" width="590" height="198" rx="8" fill="#fffbeb" stroke="#ca8a04" stroke-width="2"/>
+  <text x="311" y="170" text-anchor="middle" font-size="11" font-weight="bold" fill="#713f12">ViT Image Classifier — Patch-Based Pattern Recognition per Artifact</text>
+  <text x="311" y="183" text-anchor="middle" font-size="8.5" fill="#92400e">Each artifact is tiled into fixed-size patches → multi-head self-attention → per-stream defect label → composite quality score</text>
+
+  <!-- ── Patch grid illustration (decorative 5×4 grid per stream column) ── -->
+  <!-- Column centers: 87, 238, 389, 537 -->
+
+  <!-- S1 patch grid -->
+  <rect x="44"  y="192" width="85" height="60" rx="3" fill="white" stroke="#3b82f6" stroke-width="1"/>
+  <!-- patch rows -->
+  <line x1="44"  y1="207" x2="129" y2="207" stroke="#bfdbfe" stroke-width="0.7"/>
+  <line x1="44"  y1="222" x2="129" y2="222" stroke="#bfdbfe" stroke-width="0.7"/>
+  <line x1="44"  y1="237" x2="129" y2="237" stroke="#bfdbfe" stroke-width="0.7"/>
+  <!-- patch cols -->
+  <line x1="61"  y1="192" x2="61"  y2="252" stroke="#bfdbfe" stroke-width="0.7"/>
+  <line x1="78"  y1="192" x2="78"  y2="252" stroke="#bfdbfe" stroke-width="0.7"/>
+  <line x1="95"  y1="192" x2="95"  y2="252" stroke="#bfdbfe" stroke-width="0.7"/>
+  <line x1="112" y1="192" x2="112" y2="252" stroke="#bfdbfe" stroke-width="0.7"/>
+  <!-- anomaly highlights -->
+  <rect x="44"  y="192" width="17" height="15" rx="1" fill="#fca5a5" opacity="0.7"/>
+  <rect x="78"  y="237" width="17" height="15" rx="1" fill="#fca5a5" opacity="0.7"/>
+  <rect x="112" y="207" width="17" height="15" rx="1" fill="#fed7aa" opacity="0.7"/>
+  <text x="87" y="264" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#dc2626">⚠ Dropout stripe · Sensor drift</text>
+
+  <!-- S2 patch grid -->
+  <rect x="195" y="192" width="85" height="60" rx="3" fill="white" stroke="#16a34a" stroke-width="1"/>
+  <line x1="195" y1="207" x2="280" y2="207" stroke="#bbf7d0" stroke-width="0.7"/>
+  <line x1="195" y1="222" x2="280" y2="222" stroke="#bbf7d0" stroke-width="0.7"/>
+  <line x1="195" y1="237" x2="280" y2="237" stroke="#bbf7d0" stroke-width="0.7"/>
+  <line x1="212" y1="192" x2="212" y2="252" stroke="#bbf7d0" stroke-width="0.7"/>
+  <line x1="229" y1="192" x2="229" y2="252" stroke="#bbf7d0" stroke-width="0.7"/>
+  <line x1="246" y1="192" x2="246" y2="252" stroke="#bbf7d0" stroke-width="0.7"/>
+  <line x1="263" y1="192" x2="263" y2="252" stroke="#bbf7d0" stroke-width="0.7"/>
+  <!-- seam highlight: vertical stripe at col boundary -->
+  <rect x="229" y="192" width="3"  height="60" rx="0" fill="#fde68a" opacity="0.8"/>
+  <rect x="212" y="192" width="17" height="15" rx="1" fill="#fca5a5" opacity="0.6"/>
+  <text x="238" y="264" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#dc2626">⚠ Mosaic seam · Class drift</text>
+
+  <!-- S3 patch grid -->
+  <rect x="346" y="192" width="85" height="60" rx="3" fill="white" stroke="#0284c7" stroke-width="1"/>
+  <line x1="346" y1="207" x2="431" y2="207" stroke="#bae6fd" stroke-width="0.7"/>
+  <line x1="346" y1="222" x2="431" y2="222" stroke="#bae6fd" stroke-width="0.7"/>
+  <line x1="346" y1="237" x2="431" y2="237" stroke="#bae6fd" stroke-width="0.7"/>
+  <line x1="363" y1="192" x2="363" y2="252" stroke="#bae6fd" stroke-width="0.7"/>
+  <line x1="380" y1="192" x2="380" y2="252" stroke="#bae6fd" stroke-width="0.7"/>
+  <line x1="397" y1="192" x2="397" y2="252" stroke="#bae6fd" stroke-width="0.7"/>
+  <line x1="414" y1="192" x2="414" y2="252" stroke="#bae6fd" stroke-width="0.7"/>
+  <!-- void fill polygon ghost -->
+  <rect x="363" y="222" width="34" height="30" rx="1" fill="#fed7aa" opacity="0.7"/>
+  <text x="389" y="264" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#dc2626">⚠ Void fill · Topology error</text>
+
+  <!-- S4 patch grid -->
+  <rect x="494" y="192" width="85" height="60" rx="3" fill="white" stroke="#0d9488" stroke-width="1"/>
+  <line x1="494" y1="207" x2="579" y2="207" stroke="#99f6e4" stroke-width="0.7"/>
+  <line x1="494" y1="222" x2="579" y2="222" stroke="#99f6e4" stroke-width="0.7"/>
+  <line x1="494" y1="237" x2="579" y2="237" stroke="#99f6e4" stroke-width="0.7"/>
+  <line x1="511" y1="192" x2="511" y2="252" stroke="#99f6e4" stroke-width="0.7"/>
+  <line x1="528" y1="192" x2="528" y2="252" stroke="#99f6e4" stroke-width="0.7"/>
+  <line x1="545" y1="192" x2="545" y2="252" stroke="#99f6e4" stroke-width="0.7"/>
+  <line x1="562" y1="192" x2="562" y2="252" stroke="#99f6e4" stroke-width="0.7"/>
+  <!-- sparse / missing patches -->
+  <rect x="511" y="207" width="17" height="15" rx="1" fill="#e5e7eb" opacity="0.9"/>
+  <rect x="545" y="237" width="17" height="15" rx="1" fill="#e5e7eb" opacity="0.9"/>
+  <rect x="562" y="192" width="17" height="15" rx="1" fill="#fca5a5" opacity="0.6"/>
+  <text x="537" y="264" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#dc2626">⚠ Taxonomy drift · Sparse obs</text>
+
+  <!-- ── Multi-head self-attention label ── -->
+  <text x="311" y="280" text-anchor="middle" font-size="8.5" font-style="italic" fill="#92400e">↕ Multi-head self-attention across full patch sequence — spatially localised defect detection</text>
+
+  <!-- ── 4-axis scoring row ── -->
+  <!-- divider -->
+  <line x1="26" y1="288" x2="596" y2="288" stroke="#fcd34d" stroke-width="0.8"/>
+
+  <!-- axis labels across 4 columns -->
+  <text x="87"  y="300" text-anchor="middle" font-size="9"   font-weight="bold" fill="#713f12">① Completeness</text>
+  <text x="87"  y="311" text-anchor="middle" font-size="8"   fill="#713f12">Missing obs / expected density</text>
+  <text x="87"  y="321" text-anchor="middle" font-size="7.5" fill="#92400e">ISD station coverage · PRISM mask</text>
+
+  <text x="238" y="300" text-anchor="middle" font-size="9"   font-weight="bold" fill="#713f12">② Spatial Consistency</text>
+  <text x="238" y="311" text-anchor="middle" font-size="8"   fill="#713f12">RMSD vs. co-located reference</text>
+  <text x="238" y="321" text-anchor="middle" font-size="7.5" fill="#92400e">PRISM vs ISD · DEM vs NHD gradient</text>
+
+  <text x="389" y="300" text-anchor="middle" font-size="9"   font-weight="bold" fill="#713f12">③ Temporal Coherence</text>
+  <text x="389" y="311" text-anchor="middle" font-size="8"   fill="#713f12">PELT change-point detection</text>
+  <text x="389" y="321" text-anchor="middle" font-size="7.5" fill="#92400e">NCEI trend anomaly · BBS protocol shift</text>
+
+  <text x="537" y="300" text-anchor="middle" font-size="9"   font-weight="bold" fill="#713f12">④ Provenance Confidence</text>
+  <text x="537" y="311" text-anchor="middle" font-size="8"   fill="#713f12">Source authority weight</text>
+  <text x="537" y="321" text-anchor="middle" font-size="7.5" fill="#92400e">Gov. networks &gt; crowd-sourced</text>
+
+  <!-- composite score output -->
+  <rect x="110" y="332" width="400" height="14" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+  <text x="311" y="342" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#713f12">Composite score = w₁·Completeness + w₂·SpatialCons. + w₃·TempCoh. + w₄·Provenance</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION C — PASS GATE
+  ═══════════════════════════════════════════════════ -->
+
+  <!-- Arrow: ViT → Gate -->
+  <line x1="311" y1="350" x2="311" y2="364" stroke="#475569" stroke-width="1.4" marker-end="url(#arr)"/>
+
+  <rect x="116" y="364" width="390" height="30" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="311" y="376" text-anchor="middle" font-size="10" font-weight="bold" fill="#14532d">✓ Passes Gate → Inverse-variance weight assigned</text>
+  <text x="311" y="388" text-anchor="middle" font-size="8.5" fill="#14532d">Per-artifact quality score propagated into Knowledge Graph (§4.1) · modulates RAG retrieval priority</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION D — 3-STAGE FUSION
+  ═══════════════════════════════════════════════════ -->
+
+  <line x1="311" y1="394" x2="311" y2="406" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#arrp)"/>
+
+  <rect x="116" y="406" width="390" height="30" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="311" y="419" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c1d95">① Spatial Co-registration</text>
+  <text x="311" y="430" text-anchor="middle" font-size="8.5" fill="#4c1d95">Shared CRS · Area-weighted resample (continuous) · Majority resample (NLCD/EVT categorical)</text>
+
+  <line x1="311" y1="436" x2="311" y2="448" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#arrp)"/>
+
+  <rect x="116" y="448" width="390" height="30" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="311" y="461" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c1d95">② Temporal Co-alignment</text>
+  <text x="311" y="472" text-anchor="middle" font-size="8.5" fill="#4c1d95">Common time grid · Gap-preserving interpolation · Explicit missingness flags</text>
+
+  <line x1="311" y1="478" x2="311" y2="490" stroke="#7c3aed" stroke-width="1.6" marker-end="url(#arrp)"/>
+
+  <rect x="116" y="490" width="390" height="30" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="311" y="503" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4c1d95">③ Priority-Weighted Integration</text>
+  <text x="311" y="514" text-anchor="middle" font-size="8.5" fill="#4c1d95">ViT weights in KG · ISD/NHD (fine-res) outrank PRISM/eBird modeled (coarse surrogates)</text>
+
+  <!-- ═══════════════════════════════════════════════════
+       SECTION E — LEGEND (bottom strip, fully inside border)
+  ═══════════════════════════════════════════════════ -->
+  <rect x="16" y="530" width="500" height="38" rx="6" fill="white" stroke="#cbd5e1" stroke-width="1"/>
+  <!-- <text x="24" y="542" font-size="8.5" font-weight="bold" fill="#334155">Legend:</text> -->
+
+  <!-- stream swatches -->
+  <rect x="70"  y="533" width="10" height="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="83"  y="542" font-size="8.5" fill="#334155">Meteo &amp; Climate</text>
+
+  <rect x="172" y="533" width="10" height="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="185" y="542" font-size="8.5" fill="#334155">Land Cover &amp; Veg.</text>
+
+  <rect x="275" y="533" width="10" height="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="288" y="542" font-size="8.5" fill="#334155">Topo &amp; Hydro</text>
+
+  <rect x="365" y="533" width="10" height="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="1"/>
+  <text x="378" y="542" font-size="8.5" fill="#334155">Biological Occ.</text>
+
+  <!-- <line x1="450" y1="530" x2="450" y2="568" stroke="#e2e8f0" stroke-width="1"/> -->
+
+  <rect x="70"  y="549" width="10" height="10" fill="#fca5a5" stroke="#dc2626" stroke-width="1"/>
+  <text x="83"  y="558" font-size="8.5" fill="#334155">Defect patch</text>
+
+  <rect x="172" y="549" width="10" height="10" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+  <text x="185" y="558" font-size="8.5" fill="#334155">QC / ViT scoring</text>
+
+  <rect x="275" y="549" width="10" height="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="288" y="558" font-size="8.5" fill="#334155">Passes gate</text>
+
+  <rect x="365" y="549" width="10" height="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="378" y="558" font-size="8.5" fill="#334155">Fusion stages ①②③</text>
+
+  <!-- <line x1="458" y1="533" x2="460" y2="533" stroke="#ca8a04" stroke-width="1.8"/> -->
+  <!-- <text x="463" y="542" font-size="8.5" fill="#334155">▪ Red patch = flagged anomaly   ▪ Grey patch = missing / sparse   ▪ Yellow stripe = seam / boundary artefact</text>
+  <text x="463" y="558" font-size="8.5" fill="#334155">▪ Quarantined artifacts → explicit uncertainty flags → human expert review (§4.1 adaptive autonomy)</text> -->
+
+</svg>

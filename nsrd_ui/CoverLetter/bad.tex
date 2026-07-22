@@ -1,0 +1,69 @@
+\documentclass[11pt]{letter}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{parskip}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+% Prevent default vertical space from letter class
+\makeatletter
+\let\@opening\opening
+\renewcommand{\opening}[1]{%
+  \thispagestyle{empty} % No page number
+  \@opening{#1}%
+  \vspace{-2\parskip} % Remove extra vertical gap after opening
+}
+\makeatother
+
+% Disable default return address (which adds unwanted space)
+\long\def\@makeletterhead#1{} % Override internal command
+
+\signature{Your Name\\Your Affiliation}
+
+\begin{document}
+
+% Top logo and address, side by side
+\noindent
+\begin{minipage}{0.3\linewidth}
+  \includegraphics[width=3cm]{elsarticle/ORNL_416x100.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+  \raggedleft
+  Your Name\\
+  Your Department\\
+  Your Institution\\
+  City, State ZIP\\
+  Email: your.email@domain.com\\
+  Phone: +1-234-567-8901
+\end{minipage}
+
+\vspace{1em} % Space before letter begins
+
+\begin{letter}{Editor-in-Chief\\
+Engineering Applications of Artificial Intelligence\\
+Elsevier}
+
+\opening{Dear Editor-in-Chief,}
+
+I am pleased to submit our manuscript entitled, \textbf{Context aware visual prompting: A pattern-based automation for web dashboard development using large language models and self-validation graph-based embeddings to support decision making}, for consideration in \textit{Engineering Applications of Artificial Intelligence}.
+
+Our paper presents [a brief 1-2 sentence summary of your contribution — for example: "a novel graph-based prompting framework for automating web-based dashboard development using large language models, validated on multiple real-world GIS applications"]. We believe this work aligns well with the journal’s mission of publishing cutting-edge AI methods with practical relevance to engineering domains.
+
+Key highlights of our submission include:
+\begin{itemize}
+  \item Highlight 1 - Integration of AI with domain-specific engineering tasks
+  \item Highlight 2 –  Performance comparison with baseline methods across diverse datasets
+  \item Highlight 3 –  A scalable framework with real-world deployment potential
+\end{itemize}
+
+This manuscript is original, has not been published before, and is not currently under consideration by any other journal. All authors have approved the manuscript and agree with its submission to \textit{EAAI}. We have adhered to all ethical standards and submission guidelines.
+
+We appreciate your consideration and look forward to your feedback. Please do not hesitate to contact me at the address above if you have any questions.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}

@@ -1,0 +1,10 @@
+- The component should present an interface where users can:
+  - Choose a site from a dropdown menu.
+  - Select data parameters and specify how they should be summarized (hourly, daily, monthly, or not at all).
+  - Pick a date range for the data query using an interactive calendar.
+
+- The page should include:
+  - A map showing site locations with markers, highlighting the selected site.
+  - Two visualizations:
+    - A time series chart that updates based on the user's selections.
+    - A box plot chart for statistical representation of the data.

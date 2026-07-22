@@ -1,0 +1,11 @@
+Imagine you're crafting a React component for a webpage, titled `NaturalResourcesVault`.
+
+Guidelines:
+1. Develop a functional React component with the name `NaturalResourcesVault`.
+2. Within this component, return a `div` that includes:
+   - Text that is both centered and padded using Tailwind's styling.
+   - A prominent title that reads "NaturalResourcesVault Page".
+   - A brief note indicating that this page will host an interactive feature related to natural resources.
+3. Ensure the component is exported as the default.
+
+Please provide only the code for the component, with no additional explanations or text.

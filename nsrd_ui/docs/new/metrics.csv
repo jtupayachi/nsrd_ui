@@ -1,0 +1,12 @@
+Metric,State of the Art,Proposed Target
+Overall Workflow Acceleration,Manual expert workflow (weeks); fully manual workflow (0% autonomy),≥10× median speedup over manual baseline; ≥70% of end-to-end workflow steps completed without human intervention
+Cross-Medium Schema Alignment Rate (Go/NoGo),Keyword-matching baseline (<30% auto-alignment); expert manual validation only,≥85% auto-alignment; ≥3× over keyword-matching baseline; ≥85% of AI suggestions independently validated against ground-truth data or expert consensus
+Repository Data Quality Pass Rate,Manual QA review (weeks per dataset),≥95% air-domain / ≥85% soil-water records pass all 6 QA checks
+Retrieval Precision@k,BM25 keyword search; peer-reviewed manual analysis,Precision@10 ≥0.80; ≥30% improvement over BM25; ≥90% of AI outputs rated scientifically sound by ≥2 independent domain experts
+Air-Domain Predictive Accuracy (RMSE/R²),Persistence and climatology baselines,R²≥0.75 for ≥2 variables; ≥20% RMSE reduction
+Anomaly Detection Recall,Threshold-based statistical baseline,Recall ≥0.80 / FPR ≤0.20; ≥25% recall improvement
+HIL Pipeline End-to-End Fidelity (Go/NoGo),Expert panel agreement (≥2 experts); manual expert decisions (no AI assistance),100% outputs satisfy 5-item provenance checklist; Cohen's κ≥0.80; ≥80% of AI suggestions accepted by domain experts without modification
+Decision Dashboard Deployment Time,Manual development (≥2 weeks),≤4h sketch-to-deployed dashboard; ≥80% first-pass success
+Feedback-Driven Output Preference Win-Rate (DPO/RLHF),Pre-optimization system outputs,Post-optimization win-rate ≥70% (95% CI >55%); zero regression
+
+

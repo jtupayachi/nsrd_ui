@@ -1,0 +1,69 @@
+api_instructions:
+
+
+new_prompt:
+We're designing a new main page for our DOE GIS dashboard using React and Tailwind CSS. Here's what we need:
+
+1. The page should have a React component called `HomePage` with the necessary structure.
+2. At the top, include a broad banner image that stretches across the entire width, using Tailwind's responsive settings to ensure it looks good on all devices.
+3. Below the banner, center a project title and description to introduce the dashboard.
+4. Create a set of three interactive thumbnail cards arranged in a grid format. Each card should have an image, a descriptive label, and a link. Use Tailwind for styling, incorporating visual effects when hovering over the cards, like making them slightly larger, adding a shadow, and highlighting with a ring.
+5. Ensure each card links to a specific section of the dashboard, with labels such as Biobasedmaterialsviewer, Greentechnologiestracker, Organicfarmingtracker, Plasticwasteengine, and Waterscarcityconnect.
+6. Make sure the images are imported at the beginning of the file and incorporated using `img` tags.
+7. Include a test file using Jest that checks:
+   - The banner appears correctly.
+   - The title and description are displayed.
+
+svg_code:
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header Banner -->
+  <rect x="20" y="20" width="760" height="80" fill="#f0f0f0" stroke="#aaa" stroke-dasharray="4 4" />
+  <text x="30" y="60" font-family="Arial" font-size="18" fill="#333">Header Banner</text>
+
+  <!-- Main Title -->
+  <text x="30" y="140" font-family="Georgia" font-size="28" font-weight="bold" fill="#555">Enviro Dashboard Title</text>
+  <rect x="20" y="110" width="760" height="40" fill="none" stroke="#ccc" stroke-width="0.5" />
+
+  <!-- Description -->
+  <rect x="20" y="160" width="760" height="40" fill="#f9f9f9" stroke="#ccc" />
+  <text x="30" y="185" font-family="Comic Sans MS" font-size="16" fill="#777">Dashboard description goes here...</text>
+
+  <!-- Card Section -->
+  <rect x="20" y="220" width="760" height="180" fill="none" stroke="#aaa" stroke-dasharray="4 4" />
+  <text x="30" y="240" font-family="Tahoma" font-size="16" fill="#333">Interactive Cards Section</text>
+
+  <!-- Card 1 -->
+  <rect x="40" y="260" width="160" height="120" fill="#fff" stroke="#bbb" />
+  <text x="55" y="290" font-family="Verdana" font-size="14" fill="#444">Card 1: Homepage</text>
+
+  <!-- Card 2 -->
+  <rect x="220" y="260" width="160" height="120" fill="#fff" stroke="#bbb" />
+  <text x="235" y="290" font-family="Verdana" font-size="14" fill="#444">Card 2: Datavis1</text>
+
+  <!-- Card 3 -->
+  <rect x="400" y="260" width="160" height="120" fill="#fff" stroke="#bbb" />
+  <text x="415" y="290" font-family="Verdana" font-size="14" fill="#444">Card 3: Natural Resources</text>
+
+  <!-- Additional Decorative Element -->
+  <rect x="590" y="260" width="160" height="120" fill="#e0e0ff" stroke="#ccc" stroke-dasharray="2 2" />
+  <text x="605" y="290" font-family="Courier New" font-size="14" fill="#444">Extra: Insights</text>
+
+  <!-- Footer Note -->
+  <text x="30" y="430" font-family="Georgia" font-size="12" fill="#999">© 2023 Dashboard Mockup</text>
+</svg>
+
+set_type:
+waterfall
+
+tree_view:
+src
+├── apps
+│   ├── dataVis1
+│   │   └── dataVis1.jsx
+│   ├── NaturalResourcesVault
+│   │   └── NaturalResourcesVault.jsx
+│   ├── Homepage
+│   │   └── Homepage.jsx
+│   ├── index
+│   │   └── index.jsx
+└── index.jsx

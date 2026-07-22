@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 820" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-3%" y="-3%" width="108%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4c72b0"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64b5cd"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c44e52"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dd8452"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8c8c8c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2100" height="820" fill="#ffffff"/>
+
+  <!-- ════════ USERS ════════ -->
+  <rect x="45" y="40" width="370" height="95" rx="8" fill="#ffffff" stroke="#8c8c8c" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="45" y="40" width="370" height="26" rx="8" fill="#8c8c8c"/>
+  <rect x="45" y="56" width="370" height="10" fill="#8c8c8c"/>
+  <text x="230" y="60" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="1">USERS</text>
+  <text x="140" y="92" text-anchor="middle" fill="#333" font-size="17" font-weight="600">Researcher</text>
+  <text x="320" y="92" text-anchor="middle" fill="#333" font-size="17" font-weight="600">Administrator</text>
+  <text x="230" y="118" text-anchor="middle" fill="#888" font-size="14">Role-based project isolation</text>
+
+  <!-- ════════ TLS EDGE ════════ -->
+  <rect x="500" y="40" width="450" height="95" rx="8" fill="#ffffff" stroke="#ccb974" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="500" y="40" width="450" height="26" rx="8" fill="#ccb974"/>
+  <rect x="500" y="56" width="450" height="10" fill="#ccb974"/>
+  <text x="725" y="60" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="1">TLS TERMINATION LAYER</text>
+  <text x="725" y="92" text-anchor="middle" fill="#333" font-size="17" font-weight="600">nginx-proxy + Let's Encrypt</text>
+  <text x="725" y="115" text-anchor="middle" fill="#888" font-size="14">HTTPS :443  /  Auto-certificate renewal</text>
+  <rect x="512" y="120" width="160" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="592" y="132" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">TLS + Authentication</text>
+
+  <!-- Arrow: Users to Edge -->
+  <line x1="415" y1="88" x2="498" y2="88" stroke="#4c72b0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="456" y="80" text-anchor="middle" fill="#4c72b0" font-size="13" font-weight="600">HTTPS</text>
+
+  <!-- ════════ DOCKER CONTAINER BOUNDARY ════════ -->
+  <rect x="45" y="162" width="2010" height="630" rx="10" fill="none" stroke="#4c72b0" stroke-width="4" stroke-dasharray="12,6"/>
+  <rect x="62" y="150" width="560" height="24" rx="5" fill="#ffffff"/>
+  <text x="70" y="169" fill="#4c72b0" font-size="16" font-weight="700" letter-spacing="1">DOCKER CONTAINER  —  nsrd-ui</text>
+  <rect x="520" y="154" width="240" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="640" y="150" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Containerized  |  Single-command deploy</text>
+
+  <!-- Arrow: Edge to Nginx -->
+  <line x1="725" y1="135" x2="725" y2="183" stroke="#ccb974" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+  <!-- ════════ NGINX ════════ -->
+  <rect x="62" y="186" width="1975" height="72" rx="8" fill="#ffffff" stroke="#4c72b0" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="62" y="186" width="1975" height="24" rx="8" fill="#4c72b0"/>
+  <rect x="62" y="202" width="1975" height="8" fill="#4c72b0"/>
+  <text x="1049" y="205" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">NGINX REVERSE PROXY (PORT 80)</text>
+  <text x="1049" y="228" text-anchor="middle" fill="#444" font-size="14">Static SPA serving  |  /api/* proxied to Express</text>
+  <text x="1049" y="248" text-anchor="middle" fill="#666" font-size="13">Event-stream passthrough (1800 s timeout)  |  gzip compression</text>
+
+  <!-- ════════ FRONTEND ════════ -->
+  <rect x="60" y="276" width="570" height="260" rx="8" fill="#ffffff" stroke="#8172b3" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="60" y="276" width="570" height="24" rx="8" fill="#8172b3"/>
+  <rect x="60" y="292" width="570" height="8" fill="#8172b3"/>
+  <text x="345" y="295" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="0.5">PRESENTATION LAYER — React / TypeScript</text>
+
+  <rect x="80" y="314" width="162" height="58" rx="5" fill="#ffffff" stroke="#8172b3" stroke-width="1"/>
+  <text x="161" y="340" text-anchor="middle" fill="#333" font-size="15" font-weight="600">File Upload</text>
+  <text x="161" y="360" text-anchor="middle" fill="#777" font-size="13">Drag-and-drop</text>
+
+  <rect x="258" y="314" width="162" height="58" rx="5" fill="#ffffff" stroke="#8172b3" stroke-width="1"/>
+  <text x="339" y="340" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Model Selector</text>
+  <text x="339" y="360" text-anchor="middle" fill="#777" font-size="13">Multi-LLM</text>
+
+  <rect x="436" y="314" width="162" height="58" rx="5" fill="#ffffff" stroke="#8172b3" stroke-width="1"/>
+  <text x="517" y="340" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Live Preview</text>
+  <text x="517" y="360" text-anchor="middle" fill="#777" font-size="13">Iframe + SSE</text>
+
+  <rect x="80" y="382" width="190" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="175" y="394" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">User and Project Isolation</text>
+  <text x="345" y="516" text-anchor="middle" fill="#999" font-size="13" font-style="italic">react-app-rewired  |  Vite  |  Tailwind CSS</text>
+
+  <!-- Arrow: Nginx to Frontend -->
+  <line x1="345" y1="258" x2="345" y2="274" stroke="#4c72b0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="390" y="268" text-anchor="middle" fill="#4c72b0" font-size="13">Static files</text>
+
+  <!-- ════════ BACKEND ════════ -->
+  <rect x="680" y="276" width="660" height="260" rx="8" fill="#ffffff" stroke="#dd8452" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="680" y="276" width="660" height="24" rx="8" fill="#dd8452"/>
+  <rect x="680" y="292" width="660" height="8" fill="#dd8452"/>
+  <text x="1010" y="295" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="0.5">APPLICATION LAYER — Node.js / Express (Port 3001)</text>
+
+  <!-- Pipeline -->
+  <rect x="700" y="314" width="296" height="92" rx="5" fill="#ffffff" stroke="#dd8452" stroke-width="1"/>
+  <text x="848" y="336" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Code Generation Pipeline</text>
+  <text x="848" y="356" text-anchor="middle" fill="#666" font-size="13">1. Prompt to LLM  (streaming)</text>
+  <text x="848" y="374" text-anchor="middle" fill="#666" font-size="13">2. File extraction and scaffolding</text>
+  <text x="848" y="392" text-anchor="middle" fill="#666" font-size="13">3. Vite build  |  4. Auto-repair loop</text>
+  <rect x="700" y="408" width="210" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="805" y="420" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Automated Error Correction</text>
+
+  <!-- Async Event Controller -->
+  <rect x="1014" y="314" width="296" height="92" rx="5" fill="#ffffff" stroke="#dd8452" stroke-width="1"/>
+  <text x="1162" y="336" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Async Event Controller</text>
+  <text x="1162" y="356" text-anchor="middle" fill="#666" font-size="13">Server-Sent Events (SSE)</text>
+  <text x="1162" y="374" text-anchor="middle" fill="#666" font-size="13">Request deduplication</text>
+  <text x="1162" y="392" text-anchor="middle" fill="#666" font-size="13">Buffered replay on reconnect</text>
+  <rect x="1014" y="408" width="210" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="1119" y="420" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Resilient Event Streaming</text>
+
+  <!-- Sanitizer -->
+  <rect x="700" y="436" width="296" height="48" rx="5" fill="#ffffff" stroke="#55a868" stroke-width="1"/>
+  <text x="848" y="458" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Code Sanitizer</text>
+  <text x="848" y="476" text-anchor="middle" fill="#666" font-size="13">Import validation  |  Safety checks</text>
+
+  <!-- Reference Analyzer -->
+  <rect x="1014" y="436" width="296" height="48" rx="5" fill="#ffffff" stroke="#c44e52" stroke-width="1"/>
+  <text x="1162" y="458" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Reference Analyzer</text>
+  <text x="1162" y="476" text-anchor="middle" fill="#666" font-size="13">RAG-first  |  Keyword fallback</text>
+
+  <text x="1010" y="520" text-anchor="middle" fill="#999" font-size="13" font-style="italic">express  |  axios  |  child_process  |  crypto</text>
+
+  <!-- Arrow: Nginx to Backend -->
+  <line x1="1010" y1="258" x2="1010" y2="274" stroke="#4c72b0" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="1055" y="268" text-anchor="middle" fill="#4c72b0" font-size="13">/api/*</text>
+
+  <!-- ════════ RAG MICROSERVICE ════════ -->
+  <rect x="1400" y="276" width="620" height="260" rx="8" fill="#ffffff" stroke="#c44e52" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="1400" y="276" width="620" height="24" rx="8" fill="#c44e52"/>
+  <rect x="1400" y="292" width="620" height="8" fill="#c44e52"/>
+  <text x="1710" y="295" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="0.5">RAG MICROSERVICE — Python (Port 5001)</text>
+
+  <!-- Embeddings -->
+  <rect x="1420" y="314" width="270" height="68" rx="5" fill="#ffffff" stroke="#c44e52" stroke-width="1"/>
+  <text x="1555" y="338" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Embedding Engine</text>
+  <text x="1555" y="358" text-anchor="middle" fill="#666" font-size="13">SentenceTransformer</text>
+  <text x="1555" y="374" text-anchor="middle" fill="#666" font-size="13">(all-MiniLM-L6-v2)</text>
+
+  <!-- FAISS -->
+  <rect x="1708" y="314" width="270" height="68" rx="5" fill="#ffffff" stroke="#c44e52" stroke-width="1"/>
+  <text x="1843" y="338" text-anchor="middle" fill="#333" font-size="15" font-weight="600">FAISS Index</text>
+  <text x="1843" y="358" text-anchor="middle" fill="#666" font-size="13">Approximate nearest</text>
+  <text x="1843" y="374" text-anchor="middle" fill="#666" font-size="13">neighbor search</text>
+  <rect x="1420" y="388" width="260" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="1550" y="400" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Retrieval-Augmented Generation</text>
+
+  <!-- Curated Reference Codebase -->
+  <rect x="1420" y="412" width="560" height="66" rx="5" fill="#ffffff" stroke="#ccb974" stroke-width="1"/>
+  <text x="1700" y="436" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Curated Reference Codebase</text>
+  <text x="1700" y="454" text-anchor="middle" fill="#666" font-size="13">Verified component patterns: maps, charts, dashboards, data tables</text>
+  <text x="1700" y="472" text-anchor="middle" fill="#999" font-size="12" font-style="italic">Indexed at startup; cached across container restarts</text>
+
+  <text x="1710" y="520" text-anchor="middle" fill="#999" font-size="13" font-style="italic">sentence-transformers  |  faiss-cpu  |  numpy  |  http.server</text>
+
+  <!-- Arrow: Backend to RAG -->
+  <line x1="1325" y1="460" x2="1398" y2="460" stroke="#c44e52" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="1362" y="450" text-anchor="middle" fill="#c44e52" font-size="13">GET /search</text>
+
+  <!-- ════════ vLLM / OLLAMA INFERENCE ════════ -->
+  <rect x="680" y="556" width="1340" height="230" rx="8" fill="#ffffff" stroke="#64b5cd" stroke-width="3" filter="url(#shadow)"/>
+  <rect x="680" y="556" width="1340" height="24" rx="8" fill="#64b5cd"/>
+  <rect x="680" y="572" width="1340" height="8" fill="#64b5cd"/>
+  <text x="1350" y="575" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="0.5">LLM INFERENCE CLUSTER — vLLM / Ollama  (Viridian HPC)</text>
+
+  <!-- Inference Server -->
+  <rect x="706" y="596" width="320" height="68" rx="5" fill="#ffffff" stroke="#64b5cd" stroke-width="1"/>
+  <text x="866" y="620" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Inference Gateway</text>
+  <text x="866" y="640" text-anchor="middle" fill="#666" font-size="13">TLS + Basic Auth</text>
+  <text x="866" y="656" text-anchor="middle" fill="#666" font-size="13">Continuous batching</text>
+
+  <!-- Models -->
+  <rect x="1050" y="596" width="130" height="42" rx="5" fill="#ffffff" stroke="#64b5cd" stroke-width="1"/>
+  <text x="1115" y="622" text-anchor="middle" fill="#333" font-size="14" font-weight="600">LLaMA 3</text>
+
+  <rect x="1196" y="596" width="130" height="42" rx="5" fill="#ffffff" stroke="#64b5cd" stroke-width="1"/>
+  <text x="1261" y="622" text-anchor="middle" fill="#333" font-size="14" font-weight="600">Mistral</text>
+
+  <rect x="1342" y="596" width="156" height="42" rx="5" fill="#ffffff" stroke="#64b5cd" stroke-width="1"/>
+  <text x="1420" y="622" text-anchor="middle" fill="#333" font-size="14" font-weight="600">DeepSeek v2</text>
+
+  <!-- Thinker Model (highlighted) -->
+  <rect x="1050" y="648" width="448" height="48" rx="5" fill="#ffffff" stroke="#4c72b0" stroke-width="1.8"/>
+  <text x="1274" y="668" text-anchor="middle" fill="#333" font-size="15" font-weight="700">Thinker Model: Qwen3-next</text>
+  <text x="1274" y="688" text-anchor="middle" fill="#4c72b0" font-size="13" font-style="italic">Deep reasoning for architectural decisions and code planning</text>
+  <rect x="1510" y="650" width="240" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="1630" y="662" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Deep-Reasoning Thinker Model</text>
+
+  <!-- Scaling note -->
+  <text x="1350" y="760" text-anchor="middle" fill="#888" font-size="13" font-style="italic">GPU-accelerated  |  parallel multi-user serving  |  PagedAttention memory management</text>
+  <rect x="706" y="710" width="220" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="816" y="722" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Scalable Inference  |  Multi-GPU</text>
+
+  <!-- Arrow: Backend to Inference -->
+  <path d="M 960 536 L 960 546 Q 960 553 975 556 L 1040 594" fill="none" stroke="#64b5cd" stroke-width="3" stroke-dasharray="7,4" marker-end="url(#arrowTeal)"/>
+  <text x="985" y="552" fill="#64b5cd" font-size="13" font-weight="600">Streaming generation</text>
+
+  <!-- ════════ PERSISTENT STORAGE ════════ -->
+  <rect x="60" y="556" width="570" height="230" rx="8" fill="#ffffff" stroke="#8c8c8c" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="60" y="556" width="570" height="24" rx="8" fill="#8c8c8c"/>
+  <rect x="60" y="572" width="570" height="8" fill="#8c8c8c"/>
+  <text x="345" y="575" text-anchor="middle" fill="#fff" font-size="16" font-weight="600" letter-spacing="0.5">PERSISTENT DOCKER VOLUMES</text>
+
+  <rect x="82" y="594" width="240" height="58" rx="5" fill="#ffffff" stroke="#8c8c8c" stroke-width="1"/>
+  <text x="202" y="619" text-anchor="middle" fill="#333" font-size="15" font-weight="600">projects_data</text>
+  <text x="202" y="639" text-anchor="middle" fill="#777" font-size="13">Generated applications</text>
+
+  <rect x="340" y="594" width="240" height="58" rx="5" fill="#ffffff" stroke="#8c8c8c" stroke-width="1"/>
+  <text x="460" y="619" text-anchor="middle" fill="#333" font-size="15" font-weight="600">rag_cache</text>
+  <text x="460" y="639" text-anchor="middle" fill="#777" font-size="13">FAISS index, embeddings</text>
+
+  <rect x="82" y="664" width="170" height="16" rx="3" fill="#55a868" opacity="0.12"/>
+  <text x="167" y="676" text-anchor="middle" fill="#55a868" font-size="12" font-weight="600">Persistent Volumes</text>
+  <text x="345" y="752" text-anchor="middle" fill="#999" font-size="13" font-style="italic">Survive container restarts  |  Bind-mount for development</text>
+
+  <!-- Arrow: Backend to Storage -->
+  <line x1="695" y1="530" x2="632" y2="575" stroke="#8c8c8c" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+
+  <!-- Arrow: RAG to Storage -->
+  <path d="M 1420 530 Q 1000 640 632 608" stroke="#8c8c8c" stroke-width="1.2" fill="none" marker-end="url(#arrowGray)" stroke-dasharray="5,3"/>
+
+  <!-- ════════ INLINE ARROW LEGEND (top-right corner) ════════ -->
+  <rect x="1060" y="40" width="980" height="95" rx="8" fill="#ffffff" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="1060" y="40" width="980" height="22" rx="8" fill="#e8e8e8"/>
+  <rect x="1060" y="54" width="980" height="8" fill="#e8e8e8"/>
+  <text x="1550" y="57" text-anchor="middle" fill="#555" font-size="14" font-weight="700" letter-spacing="1">DATA FLOW NOTATION</text>
+
+  <!-- Row 1 -->
+  <line x1="1085" y1="82" x2="1118" y2="82" stroke="#4c72b0" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="1130" y="87" fill="#444" font-size="14">HTTP / API request</text>
+
+  <line x1="1320" y1="82" x2="1353" y2="82" stroke="#64b5cd" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#arrowTeal)"/>
+  <text x="1365" y="87" fill="#444" font-size="14">LLM streaming (SSE)</text>
+
+  <line x1="1570" y1="82" x2="1603" y2="82" stroke="#c44e52" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+  <text x="1615" y="87" fill="#444" font-size="14">Semantic retrieval</text>
+
+  <!-- Row 2 -->
+  <line x1="1085" y1="110" x2="1118" y2="110" stroke="#ccb974" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+  <text x="1130" y="115" fill="#444" font-size="14">TLS termination</text>
+
+  <line x1="1320" y1="110" x2="1353" y2="110" stroke="#8c8c8c" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+  <text x="1365" y="115" fill="#444" font-size="14">Persistent storage</text>
+
+  <rect x="1570" y="103" width="18" height="14" rx="3" fill="none" stroke="#4c72b0" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="1596" y="115" fill="#444" font-size="14">Docker boundary</text>
+
+  <!-- Green capability badges indicator -->
+  <rect x="1790" y="103" width="12" height="12" rx="2" fill="#55a868" opacity="0.2" stroke="#55a868" stroke-width="0.8"/>
+  <text x="1810" y="114" fill="#55a868" font-size="13" font-weight="600">= capability tag</text>
+
+  <!-- Footer -->
+  
+</svg>

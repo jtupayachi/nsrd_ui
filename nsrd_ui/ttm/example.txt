@@ -1,0 +1,49 @@
+Commercializing ORNL's DT Cryogenic Pellet Injection System
+Opportunity / Technology Description
+Problem addressed: Reliable DT fueling of burning plasmas, pacing/remediating edge-localized modes, and disruption mitigation in magnetic-confinement devices.
+Technical description: Tritium-compatible twin-screw extruder feeding a dual-nozzle cutter (5 mm fueling; 3 mm ELM pacing), a gas-gun accelerator with HFS/LFS guide tubes, plus pipe-gun shattered pellet injection (SPI) for disruption mitigation. Key ITER specs include pellet sizes, repetition rates, and per-injector fueling throughput.
+Invention disclosures:
+2024056875, Method for Cryogenic Extrusion Recirculation
+202506044, Tritium-Compatible Cryogenic Screw
+202506047, Tritium-Compatible Cryogenic Pellet Gas Gun
+202506052, Pressure Relief Device Cryogenic Fusion Fuel
+Development stage: Laboratory prototypes demonstrated; ITER-scale components designed and under test with US ITER support.
+Fundamental advantage: Efficient core fueling; lower divertor heat flux; a collimated spray enabling fast quench compared with MGI.
+Market Opportunity and Expected Impact
+Who has the problem now: ITER and private fusion developers scaling demo/pilot plants.
+Current solutions & gap: Gas puff/NBI have fueling limitations; need tritium-compatible continuous extrusion (dual-diameter pellets) and SPI meeting <20 ms delivery windows from port-cell locations for rapid quench.
+Quantity (technical data):
+Per-injector fueling throughput up to 120 Pa·m³/s
+5 mm fueling pellets (50–92 mm)
+3 mm ELM pellets (17–33 mm)
+≈4 Hz vs 16 Hz repetition
+SPI 300–450 m/s fragment speed
+30°–40° spray cone
+Applications (rough order):
+ITER fueling/ELM/SPI subsystems
+Private pilot plants
+Research devices needing impurity/fueling injectors
+Licensing pathway recommendation: Staged option-to-license coupled to CRADA/SPP milestones (avoid broad exclusivity until proven partnership; consider field-limited exclusivity for fueling systems) for a component supplier.
+Go-to-Market Plan and Technical Development Plan
+Months 1–3 (partner discovery)
+Target fusion developers (tokamak, stellarator, mirror), US ITER, and qualified component suppliers.
+Publish technology listing.
+NDA-protected technical webinar aligned with DOE domestic manufacturing determinations for licensing.
+Months 2–11 (technical validation)
+Validate twin-screw extruder throughput (≥0.3 g/s DT equivalent) under SCHe cooling.
+Demonstrate dual-nozzle cutter repeatability; verify pellet survivability through ITER-relevant bends (≈850 mm).
+Execute SPI formation/shatter tests (25–34 mm neon/D₂), characterize spray geometry.
+Prepare safety basis (inventory limits, propellant recirculation), QA, and export control.
+Expected outcomes for commercial interest:
+A partner-ready data package with stable extrusion/cutting, repetition rates (fueling ≤4 Hz, ELM ≤16 Hz), validated spray geometry, and subsystem integration demonstrations.
+Key risks:
+Cryogenic throughput stability; tritium compatibility and safety/regulatory requirements; survivability/fragmentation control; integration differences across reactor geometries; long fusion timelines with few near-term customers.
+Value Proposition and Deployment Plan
+Alternatives: Gas puff fueling, neutral-beam fueling, legacy single-screw pellet systems.
+Why better:
+HFS pellet fueling increases core fueling efficiency.
+ELM pacing reduces load per event.
+SPI delivers faster, more tightly coupled mass injection than MGI during disruptions.
+Integration challenges: Medium–High (tritium safety, SCHe cooling, propellant recirculation, remote handling).
+Private-sector partners: Qualified cryogenic and valve/injector suppliers; private fusion firms; US ITER collaborators. Best near-term license holder: an established component supplier with sublicensing rights to reactor OEMs.
+End users/customers: ITER research program, private fusion pilot plants, and national/international fusion facilities.

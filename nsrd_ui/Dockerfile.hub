@@ -1,0 +1,77 @@
+# ============================================================================
+# Self-contained image for NSRD UI (jtupayac/nsrd-ui)
+#
+# Unlike the development Dockerfile (which relies on docker-compose bind
+# mounts for source, build output and reference codebases), this image bakes
+# EVERYTHING in so it runs standalone with a single `docker run`:
+#   - All Node/Express server + pipeline source
+#   - All Python RAG source
+#   - The production React build (built during image build)
+#   - The reference codebases used by the RAG engine
+#   - The pre-downloaded sentence-transformers embedding model
+#   - A pre-built FAISS index (warm start, fully offline)
+#
+# The only external dependency at runtime is the Ollama LLM endpoint used for
+# code generation (a remote service), which is expected.
+# ============================================================================
+FROM node:18-slim
+
+WORKDIR /app
+
+# Keep HuggingFace model cache inside the image for offline startup
+ENV HF_HOME=/app/.hf_cache \
+    TRANSFORMERS_OFFLINE=0 \
+    NODE_ENV=production
+
+# ── System + Python build dependencies (for faiss / sentence-transformers) ──
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget \
+    python3 \
+    python3-pip \
+    python3-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /app/projects
+
+# ── Python ML libraries for the RAG engine ──────────────────────────────────
+RUN pip3 install --break-system-packages --no-cache-dir \
+    sentence-transformers \
+    faiss-cpu \
+    numpy
+
+# ── Pre-download the embedding model so runtime needs no network ────────────
+RUN python3 -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+
+# ── Node dependencies (main app) ────────────────────────────────────────────
+# Include devDependencies (react-app-rewired) so the production build can run,
+# even though NODE_ENV=production is set for runtime.
+COPY package*.json ./
+RUN npm install --include=dev
+
+# ── Vite + React template (used when generating downstream projects) ────────
+COPY templates/ /app/templates/
+RUN cd /app/templates/react-app && NODE_ENV=development npm install
+
+# ── Application source (Node/Express + pipeline + Python RAG) ───────────────
+COPY server.js pipeline.js sanitizer.js langchain_agent.js \
+     referenceAnalyzer.js referenceAnalyzer_rag.js \
+     reference_analyzer.py rag_embeddings.py rag_server.py fastapi_analyzer.py \
+     config-overrides.js tsconfig.json docker-start.sh ./
+COPY public/ /app/public/
+COPY src/ /app/src/
+
+# ── Reference codebases consumed by the RAG engine (baked into image) ───────
+COPY reference-codebases/ /reference-codebases/
+
+# ── Build the production React bundle (baked into the image) ────────────────
+# Use the locally-installed binary (not npx, which pulls a conflicting copy of
+# eslint-config-react-app) and disable the ESLint plugin for a clean CI build.
+RUN DISABLE_ESLINT_PLUGIN=true NODE_ENV=development ./node_modules/.bin/react-app-rewired build
+
+# ── Pre-build the FAISS index for a warm, fully-offline start ───────────────
+RUN python3 -c "from rag_embeddings import get_rag_instance; get_rag_instance()" || \
+    echo "[build] FAISS pre-build skipped; index will build at first run"
+
+EXPOSE 80
+
+CMD ["sh", "/app/docker-start.sh"]
