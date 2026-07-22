@@ -1,0 +1,39 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / lock files
+~$*
+*.tmp
+
+# PowerShell generator scripts (dev only)
+create_gantt.ps1
+create_pptx.ps1
+
+# Office temp files
+*.xlsx~
+~*.xlsx
+
+# Node
+nsrd_ui/node_modules/
+nsrd_ui/build/
+nsrd_ui/projects/
+nsrd_ui/.cache/
+nsrd_ui/.env
+nsrd_ui/.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Docker
+*.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+!nsrd_ui/.env.example

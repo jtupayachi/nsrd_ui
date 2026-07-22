@@ -320,11 +320,10 @@ export default function App() {
       {/* Header */}
       <header className="header">
         <div className="header-logo">
-          <div className="header-logo-icon">🌐</div>
-          <h1>NSRD GIS Builder</h1>
+          <h1>Smart<span className="accent">GIS</span>cavp</h1>
         </div>
         <div className="header-divider" />
-        <span className="subtitle">Multi-page React App Generator · Oak Ridge National Laboratory</span>
+        <span className="subtitle">// AI-Powered App Generator</span>
       </header>
 
       <div className={`content-area${(generating || pipelineSteps.length > 0) ? ' has-pipeline' : ''}`}>
@@ -696,7 +695,7 @@ export default function App() {
 
       </div>{/* /content-area */}
       <footer className="footer">
-        NSRD · Oak Ridge National Laboratory &nbsp;|&nbsp; {pages.length} Page{pages.length !== 1 ? 's' : ''} Configured
+        SmartGIScavp · Oak Ridge National Laboratory &nbsp;|&nbsp; {pages.length} Page{pages.length !== 1 ? 's' : ''}
       </footer>
     </div>
   );
