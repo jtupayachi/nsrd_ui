@@ -50,31 +50,16 @@ Page types supported:
 
 ## Quick Start
 
-### Option A — Docker (Recommended)
-
 ```bash
 git clone https://github.com/jtupayachi/nsrd_ui.git
 cd nsrd_ui/nsrd_ui
+cp .env.example .env          # edit OLLAMA_HOST and credentials
 docker compose up --build
 ```
 
 Open **http://localhost:8432** in your browser.
 
 > **Port 8432** is exposed. Change it in `docker-compose.yml` → `ports: "XXXX:80"` if needed.
-
-### Option B — Local Development
-
-```bash
-cd nsrd_ui
-npm install
-# Terminal 1 — Express backend
-node server.js
-# Terminal 2 — React frontend
-npm start
-```
-
-Frontend → http://localhost:3000  
-Backend  → http://localhost:80 (or `PORT` env var)
 
 ---
 
@@ -117,18 +102,6 @@ You can use the **same model for both** if compute is limited.
 
 ---
 
-## Adding Anthropic Claude
-
-In the UI, switch the **Engine** selector to `Anthropic`. Then set your key in `.env`:
-
-```bash
-# nsrd_ui/.env
-ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxx
-```
-
-Supported models: `claude-opus-4-5`, `claude-sonnet-4-5`, `claude-3-5-haiku`
-
----
 
 ## Full Demo Walkthrough
 
@@ -214,18 +187,15 @@ environment:
   - LETSENCRYPT_HOST=your-domain.example.com
 ```
 
-### Custom port
-
-```yaml
-ports:
-  - "9000:80"   # expose on port 9000
-```
-
-### Production build only (no volume mounts)
+### Pull from Docker Hub
 
 ```bash
-docker build -t smartgiscavp .
-docker run -p 8432:80 smartgiscavp
+docker pull jtupayac/nsrd-ui
+docker run -p 8432:80 \
+  -e OLLAMA_HOST=http://your-ollama:11434 \
+  -e OLLAMA_USER=your_user \
+  -e OLLAMA_PASSWORD=your_pass \
+  jtupayac/nsrd-ui
 ```
 
 ---
@@ -292,8 +262,6 @@ If your program could benefit from AI-assisted rapid application development for
 | **Repository** | [github.com/jtupayachi/nsrd_ui](https://github.com/jtupayachi/nsrd_ui) |
 | **Container** | [hub.docker.com/r/jtupayac/nsrd-ui](https://hub.docker.com/r/jtupayac/nsrd-ui) |
 
-> Pull requests and golden example components (`reference-codebases/golden-examples/src/`) are always welcome — high-quality React components directly improve LLM output quality for all users.
-
 ---
 
 ## License
@@ -309,11 +277,5 @@ MIT © Oak Ridge National Laboratory
 | **PI** | [Xiao-Ying Yu, Ph.D.](https://www.ornl.gov/staff-profile/xiao-ying-yu) · Oak Ridge National Laboratory |
 | **Dev** | [Jose Tupayachi](https://jtupayachi.github.io/) · UTK / ORNL |
 | **Container** | [`docker pull jtupayac/nsrd-ui`](https://hub.docker.com/r/jtupayac/nsrd-ui) |
-
-<br/>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/jtupayachi/nsrd_ui" alt="QR — github.com/jtupayachi/nsrd_ui" />
-
-<sub>Scan to open the repo · SmartGIScavp · Oak Ridge National Laboratory</sub>
 
 </div>
